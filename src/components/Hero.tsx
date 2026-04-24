@@ -1,4 +1,4 @@
-import portrait from "../assets/image.png";
+import portrait from "../assets/image.jpg";
 import verifiedIcon from "../assets/verifiedIcon.svg";
 import NavBar from "./NavBar";
 
@@ -17,16 +17,22 @@ function Hero() {
               </span>
             </h1>
             <h3 className="text-2xl text-left">
-              I build fast and responsive React web applications, focusing on
-              modern UI, and clean component architecture.
+              I build fast, responsive React applications with modern UI and
+              clean component architecture.
             </h3>
             <div className="flex flex-row justify-center gap-10 mt-15">
-              <button className="bg-red-600 hover:bg-red-500  active:bg-red-600 hover:cursor-pointer hover:scale-105 active:scale-95 transition-all duration-100 p-4 rounded-full">
+              <a
+                href="#projects"
+                className="flex justify-center items-center bg-red-600 hover:bg-red-500  active:bg-red-600 hover:cursor-pointer hover:scale-105 active:scale-95 transition-all duration-100 p-4 rounded-full"
+              >
                 View Projects
-              </button>
-              <button className="bg-gray-700 p-2 rounded-full hover:cursor-pointer hover:bg-gray-600 hover:scale-105 active:scale-95 transition-all duration-100 active:bg-gray-700">
+              </a>
+              <a
+                href="#contact"
+                className="flex justify-center items-center bg-gray-700 p-2 rounded-full hover:cursor-pointer hover:bg-gray-600 hover:scale-105 active:scale-95 transition-all duration-100 active:bg-gray-700"
+              >
                 Contact me
-              </button>
+              </a>
             </div>
           </div>
 

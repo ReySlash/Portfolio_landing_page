@@ -1,6 +1,37 @@
 import { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
 import logo from "../assets/logoMark.png";
+
+function MenuIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    >
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    >
+      <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  );
+}
 
 function NavBar() {
   const NavLinks = ["Home", "Projects", "About", "Contact"];
@@ -18,7 +49,7 @@ function NavBar() {
       className="sticky top-0 z-20 w-full px-4 py-1 sm:px-6 lg:px-10 bg-black/50 backdrop-blur-sm"
     >
       <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between">
-        <a href="#hero" className="inline shrink-0">
+        <a href="#home" className="inline shrink-0">
           <img className="w-8" src={logo} alt="Logo" />
         </a>
         <nav className="absolute left-1/2 hidden -translate-x-1/2 md:block">
@@ -50,7 +81,7 @@ function NavBar() {
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen((prev) => !prev)}
         >
-          {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
       </div>
 
@@ -78,7 +109,7 @@ function NavBar() {
             aria-label="Close navigation menu"
             onClick={() => setIsMenuOpen(false)}
           >
-            <FiX size={22} />
+            <CloseIcon />
           </button>
         </div>
 
