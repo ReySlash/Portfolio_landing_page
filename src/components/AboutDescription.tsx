@@ -15,57 +15,57 @@ function AboutDescription() {
   const currentFocus = [
     "Building responsive React apps",
     "Improving component architecture",
-    "Learning Next.js and fullstack fundamentals",
+    "Learning Next.js and fullstack basics",
+    "Bringing a data-aware, product-minded perspective",
   ];
 
-  const extraValue = [
-    "Data background",
-    "Business mindset",
-    "Practical problem solving",
-    "Product-oriented thinking",
-  ];
   return (
-    <div className="flex flex-col justify-center text-center gap-5">
-      <p className="text-justify bg-gray-950 border-2 border-gray-800 p-2 rounded px-2">
-        I’m a developer focused on building practical web applications that
-        solve real problems. With a background in data and a strong interest in
-        business, I aim to create products that are technically solid, useful,
-        and scalable. I enjoy turning ideas into clean, functional interfaces
-        and improving my skills through real-world projects.
-      </p>
+    <div className="flex flex-col gap-6">
+      <div className="rounded-3xl border border-gray-800 bg-gray-950/90 p-6 lg:p-8">
+        <p className="text-left text-lg leading-8 text-gray-200">
+          I am a frontend developer focused on building practical web products
+          with modern design, solid structure, and clear user flows. My
+          background in data and business helps me think beyond visuals and pay
+          attention to how interfaces support decisions, usability, and growth.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-2 gap-4 py-2">
-        <div className="col-span-1 bg-gray-950 border-2 border-gray-800 p-2 rounded">
-          <h3 className="text-xl col-span-1 text-left font-semibold mb-2 px-2">
-            Core Skills
-          </h3>
-          <ul className="col-span-1 text-left">
-            {coreSkills.map((skill, index) => (
-              <li className="" key={index}>
-                - {skill}
-              </li>
+      <div className="grid gap-4 lg:grid-cols-[1.2fr_1fr]">
+        <div className="rounded-3xl border border-gray-800 bg-gray-950 p-5 lg:p-6">
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <h3 className="text-left text-2xl font-semibold text-white">
+              Core Skills
+            </h3>
+            <span className="text-xs uppercase tracking-[0.18em] text-gray-500">
+              Current toolkit
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-3 text-sm font-medium">
+            {coreSkills.map((skill) => (
+              <span
+                className="rounded-full border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 transition-colors duration-150 hover:border-red-500/50 hover:text-white"
+                key={skill}
+              >
+                {skill}
+              </span>
             ))}
-          </ul>
+          </div>
         </div>
-        <div className="col-span-1 bg-gray-950 border-2 border-gray-800 p-2 rounded">
-          <h3 className="text-xl text-left font-semibold bg-gray-950  px-2 mb-2">
-            Current Focus
-          </h3>
-          <ul className="col-span-1 text-left bg-gray-950  ">
-            {currentFocus.map((focus, index) => (
-              <li className="" key={index}>
-                - {focus}
-              </li>
-            ))}
-          </ul>
 
-          <h3 className="text-xl text-left font-semibold my-2 bg-gray-950  px-2">
-            Extra Value
-          </h3>
-          <ul className="col-span-1 text-left bg-gray-950  ">
-            {extraValue.map((value, index) => (
-              <li className="" key={index}>
-                - {value}
+        <div className="rounded-3xl border border-gray-800 bg-gray-950 p-5 lg:p-6">
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <h3 className="text-left text-2xl font-semibold text-white">
+              Current Focus
+            </h3>
+            <span className="text-xs uppercase tracking-[0.18em] text-gray-500">
+              Right now
+            </span>
+          </div>
+          <ul className="space-y-4 text-left leading-7 text-gray-100">
+            {currentFocus.map((focus) => (
+              <li className="flex gap-3 rounded-2xl bg-white/3 p-3" key={focus}>
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-red-600" />
+                <span className="text-gray-200">{focus}</span>
               </li>
             ))}
           </ul>

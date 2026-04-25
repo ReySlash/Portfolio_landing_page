@@ -3,45 +3,87 @@ import githubIcon from "../assets/github.svg";
 import linkedinIcon from "../assets/linkedin.svg";
 
 function AboutCard() {
+  const highlights = [
+    { label: "Primary Stack", value: "React + TypeScript" },
+    { label: "Focus", value: "Responsive UI" },
+    { label: "Mindset", value: "Product + data aware" },
+  ];
+
   return (
-    <div className=" rounded-lg border-2 border-gray-800 bg-gray-950 mx-10 py-2 px-5 flex flex-col justify-start items-center">
-      <img
-        className="mx-auto rounded-full border-6 border-red-600 w-48 h-48 object-cover mb-2"
-        src={portrait}
-        alt="Portrait"
-      />
-      <h3 className="text-xl font-bold mb-1">Reynaldo Carmenate Arias</h3>
-      <h3 className="text-lg font-semibold text-red-600 mb-1">
-        Frontend Developer
-      </h3>
-      <hr className="my-4 w-full h-1 border-0 dark:bg-gray-800" />
-      <div className="flex justify-center gap-5 px-5 w-full">
+    <div className="overflow-hidden rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] lg:p-8">
+      <div className="mb-6 flex items-start justify-between gap-4">
+        <span className="inline-flex rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
+          Open to opportunities
+        </span>
+      </div>
+
+      <div className="flex flex-col items-center text-center">
+        <div className="relative mb-5">
+          <div className="absolute inset-0 rounded-full bg-red-600/20 blur-2xl" />
+          <img
+            className="relative mx-auto h-44 w-44 rounded-full border-4 border-red-600/80 object-cover shadow-[0_20px_60px_rgba(220,38,38,0.25)]"
+            src={portrait}
+            alt="Portrait"
+          />
+        </div>
+
+        <h3 className="text-2xl font-bold text-white">
+          Reynaldo Carmenate Arias
+        </h3>
+        <p className="mt-2 text-lg font-medium text-red-500">
+          Frontend Developer
+        </p>
+      </div>
+
+      <div className="my-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+        {highlights.map((item) => (
+          <div
+            className="rounded-2xl border border-gray-800 bg-white/3 px-4 py-4 text-left"
+            key={item.label}
+          >
+            <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
+              {item.label}
+            </p>
+            <p className="mt-2 text-sm font-semibold text-white">
+              {item.value}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex flex-col gap-3 sm:flex-row">
         <a
           href="#projects"
-          className="flex justify-center items-center bg-red-600 hover:bg-red-500  active:bg-red-600 hover:cursor-pointer hover:scale-105 active:scale-95 transition-all duration-100 p-4 rounded-lg w-35"
+          className="flex flex-1 items-center justify-center rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
         >
           View Projects
         </a>
         <a
           href="#contact"
-          className="flex justify-center items-center bg-gray-700 p-2 rounded-lg hover:cursor-pointer hover:bg-gray-600 hover:scale-105 active:scale-95 transition-all duration-100 active:bg-gray-700 w-35"
+          className="flex flex-1 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
         >
-          Contact me
+          Contact Me
         </a>
       </div>
-      <hr className="my-4 w-full h-1 border-0 dark:bg-gray-800" />
-      <div className="flex justify-center gap-4 mb-2">
+
+      <div className="mt-6 flex items-center justify-center gap-4 border-t border-gray-800 pt-6">
         <a
-          className="bg-gray-700 p-2 rounded hover:cursor-pointer hover:bg-gray-600 hover:scale-105 active:scale-95 transition-all duration-100"
+          className="rounded-xl border border-gray-700 bg-gray-800 p-3 transition-all duration-150 hover:scale-105 hover:cursor-pointer hover:border-gray-500 hover:bg-gray-700 active:scale-95"
           href="https://github.com/ReySlash"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Open GitHub profile"
         >
-          <img className="w-8" src={githubIcon} alt="GitHub" />
+          <img className="w-7" src={githubIcon} alt="GitHub" />
         </a>
         <a
-          className="bg-gray-700 p-2 rounded hover:cursor-pointer hover:bg-gray-600 hover:scale-105 active:scale-95 transition-all duration-100"
+          className="rounded-xl border border-gray-700 bg-gray-800 transition-all p-1 duration-150 hover:scale-105 hover:cursor-pointer hover:border-gray-500 hover:bg-gray-700 active:scale-95 "
           href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Open LinkedIn profile"
         >
-          <img className="w-8" src={linkedinIcon} alt="LinkedIn" />
+          <img className="w-11" src={linkedinIcon} alt="LinkedIn" />
         </a>
       </div>
     </div>

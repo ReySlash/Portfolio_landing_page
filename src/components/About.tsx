@@ -3,10 +3,15 @@ import AboutDescription from "./AboutDescription";
 
 function About() {
   return (
-    <section id="about" className="min-h-screen px-6 py-10 lg:px-20">
-      <div className="mx-auto flex min-h-screen max-w-7xl flex-col text-center">
-        <h2 className="mb-10 text-3xl font-bold">About Me</h2>
-        <div className="grid flex-1 gap-5 lg:grid-cols-2">
+    <section id="about" className="px-6 py-18 lg:px-20 lg:py-24">
+      <div className="mx-auto flex max-w-7xl flex-col gap-10">
+        <div className="max-w-3xl space-y-4 text-left">
+          <span className="inline-flex w-fit rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1 text-lg font-semibold uppercase tracking-[0.2em] text-red-400">
+            About
+          </span>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.35fr] lg:items-start">
           <div className="h-full">
             <AboutCard />
           </div>
