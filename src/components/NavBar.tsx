@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/logoMark.png";
+
+const navLinks = ["home", "projects", "about", "contact"];
 
 function MenuIcon() {
   return (
@@ -34,12 +36,61 @@ function CloseIcon() {
 }
 
 function NavBar() {
-  const NavLinks = ["Home", "Projects", "About", "Contact"];
-  const [active, setActive] = useState(0);
+  const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleLinkClick = (index: number) => {
-    setActive(index);
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.getElementById(link))
+      .filter((section): section is HTMLElement => section !== null);
+
+    const updateActiveSection = () => {
+      const navbar = document.getElementById("navbar");
+      const navbarHeight = navbar?.getBoundingClientRect().height ?? 0;
+      const focusLine = navbarHeight + 24;
+
+      const nearPageBottom =
+        window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+
+      if (nearPageBottom) {
+        setActiveSection(sections.at(-1)?.id ?? "contact");
+        return;
+      }
+
+      let currentSection = sections[0]?.id ?? "home";
+
+      sections.forEach((section) => {
+        const { top } = section.getBoundingClientRect();
+
+        if (top <= focusLine) {
+          currentSection = section.id;
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    const observer = new IntersectionObserver(
+      () => {
+        updateActiveSection();
+      },
+      {
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      },
+    );
+    sections.forEach((section) => observer.observe(section));
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    updateActiveSection();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, []);
+
+  const handleLinkClick = () => {
     setIsMenuOpen(false);
   };
 
@@ -54,16 +105,16 @@ function NavBar() {
         </a>
         <nav className="absolute left-1/2 hidden -translate-x-1/2 md:block">
           <ul className="flex flex-row items-center gap-6 uppercase lg:gap-12">
-            {NavLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <li key={link}>
                 <a
                   className={
-                    active === index
+                    activeSection === link
                       ? "text-red-500"
                       : "text-white transition-colors duration-300 hover:text-red-500"
                   }
-                  href={`#${link.toLowerCase()}`}
-                  onClick={() => handleLinkClick(index)}
+                  href={`#${link}`}
+                  onClick={handleLinkClick}
                 >
                   {link}
                 </a>
@@ -115,16 +166,16 @@ function NavBar() {
 
         <nav className="flex-1">
           <ul className="flex flex-col gap-6 text-lg uppercase">
-            {NavLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <li key={link}>
                 <a
                   className={
-                    active === index
+                    activeSection === link
                       ? "block text-red-500"
                       : "block text-white transition-colors duration-300 hover:text-red-500"
                   }
-                  href={`#${link.toLowerCase()}`}
-                  onClick={() => handleLinkClick(index)}
+                  href={`#${link}`}
+                  onClick={handleLinkClick}
                 >
                   {link}
                 </a>
