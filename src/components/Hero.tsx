@@ -20,16 +20,16 @@ function Hero() {
               I build fast, responsive React applications with modern UI and
               clean component architecture.
             </h3>
-            <div className="flex flex-col gap-3 sm:flex-row py-10">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row py-10">
               <a
                 href="#projects"
-                className="flex flex-1 items-center justify-center rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
+                className="max-w-50 flex flex-1 items-center justify-center rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
               >
                 View Projects
               </a>
               <a
                 href="#contact"
-                className="flex flex-1 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+                className="max-w-50 flex flex-1 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
               >
                 Contact Me
               </a>

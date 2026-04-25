@@ -30,7 +30,7 @@ function AboutDescription() {
         </p>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[1.2fr_1fr]">
+      <div className="grid gap-4 lg:grid-cols-[1.2fr_1fr] min-h-full">
         <div className="h-full rounded-3xl border border-gray-800 bg-gray-950 p-5 lg:p-6">
           <div className="mb-4 flex items-center justify-between gap-4">
             <h3 className="text-left text-2xl font-semibold text-white">
@@ -40,7 +40,7 @@ function AboutDescription() {
               Current toolkit
             </span>
           </div>
-          <div className="flex flex-wrap gap-3 items-center text-sm font-medium py-10">
+          <div className="flex flex-wrap gap-3 items-center text-sm font-medium py-3 lg:py-10">
             {coreSkills.map((skill) => (
               <span
                 className="rounded-full border py-3 border-gray-700 bg-gray-900 px-3 text-gray-100 transition-colors duration-150 hover:border-red-500/50 hover:text-white"
