@@ -1,12 +1,10 @@
 import portrait from "../assets/image.jpg";
 import verifiedIcon from "../assets/verifiedIcon.svg";
-import NavBar from "./NavBar";
 
 function Hero() {
   return (
     <>
       <section id="home">
-        <NavBar />
         {/* Column#1: Information */}
         <div className="grid md:grid-cols-1 lg:grid-cols-2 mb-10 px-20 ">
           <div className="order-last lg:order-first content-center">

@@ -68,22 +68,30 @@ function AboutCard() {
 
       <div className="mt-6 flex items-center justify-center gap-4 border-t border-gray-800 pt-6">
         <a
-          className="rounded-xl border border-gray-700 bg-gray-800 p-3 transition-all duration-150 hover:scale-105 hover:cursor-pointer hover:border-gray-500 hover:bg-gray-700 active:scale-95"
+          className="rounded-xl border border-gray-800 bg-gray-900 p-3 transition-all duration-150 hover:scale-105 hover:cursor-pointer hover:border-gray-600 hover:bg-gray-800 active:scale-95"
           href="https://github.com/ReySlash"
           target="_blank"
           rel="noreferrer"
           aria-label="Open GitHub profile"
         >
-          <img className="w-7" src={githubIcon} alt="GitHub" />
+          <img
+            className="w-7 brightness-0 invert "
+            src={githubIcon}
+            alt="GitHub"
+          />
         </a>
         <a
-          className="rounded-xl border border-gray-700 bg-gray-800 transition-all p-1 duration-150 hover:scale-105 hover:cursor-pointer hover:border-gray-500 hover:bg-gray-700 active:scale-95 "
+          className="rounded-xl border border-gray-800 bg-gray-900 transition-all p-1 duration-150 hover:scale-105 hover:cursor-pointer hover:border-gray-600 hover:bg-gray-800 active:scale-95 "
           href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
           target="_blank"
           rel="noreferrer"
           aria-label="Open LinkedIn profile"
         >
-          <img className="w-11" src={linkedinIcon} alt="LinkedIn" />
+          <img
+            className="w-11 brightness-0 invert "
+            src={linkedinIcon}
+            alt="LinkedIn"
+          />
         </a>
       </div>
     </div>
