@@ -1,22 +1,26 @@
 import copyClipboard from "../assets/copyClipboardIcon.svg";
 import copiedClipboard from "../assets/copiedClipboardIcon.svg";
 import { useState } from "react";
+import Reveal from "./Reveal";
 
 function Contact() {
   const [copied, setCopied] = useState(false);
   return (
     <section id="contact" className="px-6 py-5 lg:px-20 lg:py-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-5">
-        <div className="max-w-3xl space-y-4 text-left">
+        <Reveal className="max-w-3xl space-y-4 text-left">
           <span className="inline-flex w-fit rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1 text-lg font-semibold uppercase tracking-[0.2em] text-red-400">
             Contact
           </span>
           <h2 className="text-4xl font-bold tracking-tight text-white lg:text-5xl">
             Let&apos;s build something clear, modern, and useful.
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] lg:p-8">
+        <Reveal
+          className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] lg:p-8"
+          delay={80}
+        >
           <div className="flex items-center gap-6">
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
@@ -52,12 +56,12 @@ function Contact() {
             </div>
             <p className="select-none">rcarmenate95@gmail.com</p>
           </div>
-        </div>
+        </Reveal>
 
-        <p className="text-left text-sm leading-7 text-gray-400">
+        <Reveal className="text-left text-sm leading-7 text-gray-400" delay={140}>
           Best way to reach me right now: LinkedIn for professional contact,
           GitHub for code and project context.
-        </p>
+        </Reveal>
       </div>
     </section>
   );
