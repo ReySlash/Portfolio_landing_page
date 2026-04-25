@@ -6,7 +6,7 @@ function About() {
     <section id="about" className="min-h-screen px-6 py-10 lg:px-20">
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col text-center">
         <h2 className="mb-10 text-3xl font-bold">About Me</h2>
-        <div className="grid flex-1 gap-5 md:grid-cols-2">
+        <div className="grid flex-1 gap-5 lg:grid-cols-2">
           <div className="h-full">
             <AboutCard />
           </div>

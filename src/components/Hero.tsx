@@ -12,7 +12,7 @@ function Hero() {
           <div className="order-last lg:order-first content-center">
             <h1 className="text-left text-2xl lg:text-4xl">
               I'm a{" "}
-              <span className="typewriter text-red-500">
+              <span className="typewriter text-red-600">
                 Frontend Developer.
               </span>
             </h1>
@@ -23,13 +23,13 @@ function Hero() {
             <div className="flex flex-row justify-center gap-10 mt-15">
               <a
                 href="#projects"
-                className="flex justify-center items-center bg-red-600 hover:bg-red-500  active:bg-red-600 hover:cursor-pointer hover:scale-105 active:scale-95 transition-all duration-100 p-4 rounded-full"
+                className="flex justify-center items-center bg-red-600 hover:bg-red-500  active:bg-red-600 hover:cursor-pointer hover:scale-105 active:scale-95 transition-all duration-100 p-4 rounded-lg w-35"
               >
                 View Projects
               </a>
               <a
                 href="#contact"
-                className="flex justify-center items-center bg-gray-700 p-2 rounded-full hover:cursor-pointer hover:bg-gray-600 hover:scale-105 active:scale-95 transition-all duration-100 active:bg-gray-700"
+                className="flex justify-center items-center bg-gray-700 p-2 rounded-lg hover:cursor-pointer hover:bg-gray-600 hover:scale-105 active:scale-95 transition-all duration-100 active:bg-gray-700 w-35"
               >
                 Contact me
               </a>
