@@ -8,7 +8,7 @@ function Hero() {
       <section id="home">
         <NavBar />
         {/* Column#1: Information */}
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 mb-10 px-20">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 mb-10 px-20 ">
           <div className="order-last lg:order-first content-center">
             <h1 className="text-left text-2xl lg:text-4xl">
               I'm a{" "}
@@ -20,18 +20,18 @@ function Hero() {
               I build fast, responsive React applications with modern UI and
               clean component architecture.
             </h3>
-            <div className="flex flex-row justify-center gap-10 mt-15">
+            <div className="flex flex-col gap-3 sm:flex-row py-10">
               <a
                 href="#projects"
-                className="flex justify-center items-center bg-red-600 hover:bg-red-500  active:bg-red-600 hover:cursor-pointer hover:scale-105 active:scale-95 transition-all duration-100 p-4 rounded-lg w-35"
+                className="flex flex-1 items-center justify-center rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
               >
                 View Projects
               </a>
               <a
                 href="#contact"
-                className="flex justify-center items-center bg-gray-700 p-2 rounded-lg hover:cursor-pointer hover:bg-gray-600 hover:scale-105 active:scale-95 transition-all duration-100 active:bg-gray-700 w-35"
+                className="flex flex-1 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
               >
-                Contact me
+                Contact Me
               </a>
             </div>
           </div>
