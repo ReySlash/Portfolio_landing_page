@@ -58,6 +58,7 @@ function AboutCard() {
         >
           View Projects
         </a>
+
         <a
           href="#contact"
           className="flex flex-1 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
