@@ -3,10 +3,7 @@ import verifiedIcon from "../assets/verifiedIcon.svg";
 
 function Hero() {
   return (
-    <section
-      id="home"
-      className="scroll-mt-24 bg-linear-to-br px-6 lg:px-2 my-10"
-    >
+    <section id="home" className="scroll-mt-24 px-6 lg:px-2 my-10">
       {/* Column#1: Information */}
       <div className="grid rounded-3xl  bg-black px-10 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:grid-cols-1 lg:grid-cols-2">
         <div className="order-last content-center lg:order-first border border-gray-800 p-4 rounded-3xl bg-linear-to-br from-gray-950 via-black to-gray-900">
