@@ -4,9 +4,9 @@ import verifiedIcon from "../assets/verifiedIcon.svg";
 function Hero() {
   return (
     <>
-      <section id="home">
+      <section id="home" className="bg-linear-to-br px-6 lg:px-20 my-10 ">
         {/* Column#1: Information */}
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 mb-10 px-20 ">
+        <div className="grid px-10 py-5 md:grid-cols-1 lg:grid-cols-2 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] bg-linear-to-br from-gray-950 via-black to-gray-950 rounded-3xl border border-gray-800">
           <div className="order-last lg:order-first content-center">
             <h1 className="text-left text-2xl lg:text-4xl">
               I'm a{" "}

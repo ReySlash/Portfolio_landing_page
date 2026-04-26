@@ -1,25 +1,29 @@
+import projects from "../data/projects";
+import ProjectCard from "./ProjectCard";
 import Reveal from "./Reveal";
 
 function Projects() {
   return (
-    <section id="projects">
-      <Reveal className="max-w-3xl space-y-4 px-6 text-left lg:px-20">
-        <span className="inline-flex w-fit rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1 text-lg font-semibold uppercase tracking-[0.2em] text-red-400">
-          Projects
-        </span>
-        <div>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores
-          similique dicta sunt iste quis dolorum, sint doloribus quam sapiente,
-          iusto deleniti dolore maxime amet nemo itaque quos iure repellat
-          expedita?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Voluptates sit quis, reprehenderit vel deleniti itaque id alias
-          assumenda ad velit molestias commodi iure maiores similique numquam
-          sed modi ipsum explicabo.lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Voluptates sit quis, reprehenderit vel deleniti
-          itaque id alias assumenda ad velit molestias commodi iure maiores
-          similique numquam sed modi ipsum explicabo.
-        </div>
-      </Reveal>
+    <section
+      id="projects"
+      className="bg-linear-to-br px-6 lg:px-20 my-10 w-full"
+    >
+      <div className="mx-auto flex max-w-7xl flex-col gap-5">
+        <Reveal className="w-full space-y-4 text-left">
+          <span className="inline-flex w-fit rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1 text-lg font-semibold uppercase tracking-[0.2em] text-red-400">
+            Projects
+          </span>
+          <p className="max-w-3xl text-base leading-8 text-gray-300 lg:text-lg">
+            A selection of projects focused on practical interfaces, responsive
+            layouts, and clean frontend architecture.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

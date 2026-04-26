@@ -21,13 +21,13 @@ function Contact() {
           className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] lg:p-8"
           delay={80}
         >
-          <div className="flex items-center gap-6">
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="flex items-center gap-6 justify-center">
+            <div className="flex gap-3 flex-col md:flex-row justify-center items-center">
               <a
                 href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:min-w-44 sm:px-6"
+                className="flex items-center justify-center rounded-xl bg-red-600 px-auto py-3 min-w-45 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:min-w-44 sm:px-6"
               >
                 Connect on LinkedIn
               </a>
@@ -35,7 +35,7 @@ function Contact() {
                 href="https://github.com/ReySlash"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:min-w-44 sm:px-6"
+                className="flex items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-auto py-3 min-w-45 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:min-w-44 sm:px-6"
               >
                 Visit GitHub
               </a>
@@ -45,7 +45,7 @@ function Contact() {
                   setCopied(true);
                   setTimeout(() => setCopied(false), 5000);
                 }}
-                className="flex items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:min-w-10"
+                className="flex items-center justify-center rounded-xl border border-gray-700 bg-gray-900 ps-3 pe-2 py-2 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:min-w-10"
               >
                 <img
                   className="brightness-0 invert"
@@ -53,12 +53,15 @@ function Contact() {
                   alt="Copy to clipboard"
                 />
               </button>
+              <p className="select-none underline">rcarmenate95@gmail.com</p>
             </div>
-            <p className="select-none">rcarmenate95@gmail.com</p>
           </div>
         </Reveal>
 
-        <Reveal className="text-left text-sm leading-7 text-gray-400" delay={140}>
+        <Reveal
+          className="text-left text-sm leading-7 text-gray-400"
+          delay={140}
+        >
           Best way to reach me right now: LinkedIn for professional contact,
           GitHub for code and project context.
         </Reveal>
