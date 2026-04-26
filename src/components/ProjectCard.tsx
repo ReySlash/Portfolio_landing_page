@@ -8,7 +8,7 @@ function ProjectCard({ project }: Props) {
   return (
     <div className="flex flex-col gap-2 rounded-xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] hover:border-red-600">
       <img
-        className="aspect-[16/10] rounded-t-xl border border-gray-900 object-cover"
+        className="aspect-16/10 rounded-t-xl border border-gray-900 object-cover"
         src={project.thumbnail}
         alt={project.name}
       />
