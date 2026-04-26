@@ -5,18 +5,18 @@ function Hero() {
   return (
     <section
       id="home"
-      className="scroll-mt-24 bg-linear-to-br px-6 lg:px-20 my-10"
+      className="scroll-mt-24 bg-linear-to-br px-6 lg:px-2 my-10"
     >
       {/* Column#1: Information */}
-      <div className="grid rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-950 px-10 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:grid-cols-1 lg:grid-cols-2">
+      <div className="grid rounded-3xl  bg-black px-10 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:grid-cols-1 lg:grid-cols-2">
         <div className="order-last content-center lg:order-first">
           <h1 className="text-left text-2xl lg:text-4xl">
             I'm a{" "}
             <span className="typewriter text-red-600">Frontend Developer.</span>
           </h1>
           <h3 className="text-left text-2xl">
-            I build fast, responsive React applications with modern UI and
-            clean component architecture.
+            I build fast, responsive React applications with modern UI and clean
+            component architecture.
           </h3>
           <div className="flex flex-col justify-center gap-3 py-10 sm:flex-row">
             <a
@@ -35,20 +35,17 @@ function Hero() {
         </div>
 
         {/* Column#2: Portrait */}
-        <div className="order-first lg:order-last">
-          <div className="relative">
+        <div className="order-first lg:order-last p-5 h-full  bg-transparent">
+          <div className="flex flex-col justify-center items-center relative overflow-hidden bg-transparent">
             <img
-              className="h-10/12 rounded-full"
+              className="h-10/12 rounded-full opacity-50 bg-transparent"
               src={portrait}
               alt="Portrait picture"
             />
-            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-transparent to-black lg:bg-linear-to-l lg:from-transparent lg:to-black" />
-          </div>
-          <div className="flex items-center justify-center gap-2">
-            <span className="select-none text-lg font-semibold text-gray">
-              @Reynaldo_Carmenate
-            </span>
-            <img className="h-5 w-5" src={verifiedIcon} alt="Verified Icon" />
+            <div className="flex justify-flex items-center bg-transparent">
+              <p>@Reynaldo_Carmenate</p>
+              <img className="w-5" src={verifiedIcon} alt="Verified icon" />
+            </div>
           </div>
         </div>
       </div>
