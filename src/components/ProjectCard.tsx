@@ -13,9 +13,7 @@ function ProjectCard({ project }: Props) {
         alt={project.name}
       />
       <div className="flex flex-col gap-2 px-4">
-        <h3 className="text-xl font-semibold tracking-tight text-red-600">
-          {project.name}
-        </h3>
+        <h3 className="text-2xl font-bold tracking-tight">{project.name}</h3>
         <p className="text-gray-300 leading-7"> {project.description}</p>
 
         <div className="flex flex-wrap gap-3 py-4 items-center text-sm">
