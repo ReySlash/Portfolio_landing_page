@@ -6,7 +6,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="bg-linear-to-br px-6 lg:px-20 my-10 w-full"
+      className="scroll-mt-24 bg-linear-to-br px-6 lg:px-20 my-10 w-full"
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-5">
         <Reveal className="w-full space-y-4 text-left">
@@ -17,7 +17,7 @@ function Projects() {
             A selection of projects focused on practical interfaces, responsive
             layouts, and clean frontend architecture.
           </p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}

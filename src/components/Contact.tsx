@@ -6,7 +6,7 @@ import Reveal from "./Reveal";
 function Contact() {
   const [copied, setCopied] = useState(false);
   return (
-    <section id="contact" className="px-6 py-5 lg:px-20 lg:py-10">
+    <section id="contact" className="scroll-mt-24 px-6 py-5 lg:px-20 lg:py-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-5">
         <Reveal className="max-w-3xl space-y-4 text-left">
           <span className="inline-flex w-fit rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1 text-lg font-semibold uppercase tracking-[0.2em] text-red-400">
@@ -21,13 +21,13 @@ function Contact() {
           className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] lg:p-8"
           delay={80}
         >
-          <div className="flex items-center gap-6 justify-center">
-            <div className="flex gap-3 flex-col md:flex-row justify-center items-center">
+          <div className="flex justify-center">
+            <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:flex-wrap md:gap-4">
               <a
                 href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center rounded-xl bg-red-600 px-auto py-3 min-w-45 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:min-w-44 sm:px-6"
+                className="flex min-h-12 w-60 items-center justify-center rounded-xl bg-red-600 px-6 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:min-w-44 sm:w-auto"
               >
                 Connect on LinkedIn
               </a>
@@ -35,7 +35,7 @@ function Contact() {
                 href="https://github.com/ReySlash"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-auto py-3 min-w-45 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:min-w-44 sm:px-6"
+                className="flex min-h-12 w-60 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-6 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:min-w-44 sm:w-auto"
               >
                 Visit GitHub
               </a>
@@ -45,15 +45,20 @@ function Contact() {
                   setCopied(true);
                   setTimeout(() => setCopied(false), 5000);
                 }}
-                className="flex items-center justify-center rounded-xl border border-gray-700 bg-gray-900 ps-3 pe-2 py-2 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:min-w-10"
+                className="flex h-12 w-12 ps-3 pe-2 shrink-0 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
               >
                 <img
-                  className="brightness-0 invert"
+                  className="h-5 w-5 brightness-0 invert"
                   src={copied ? copiedClipboard : copyClipboard}
                   alt="Copy to clipboard"
                 />
               </button>
-              <p className="select-none underline">rcarmenate95@gmail.com</p>
+              <a
+                href="mailto:rcarmenate95@gmail.com?subject=Portfolio%20Inquiry"
+                className="select-none break-all text-center text-gray-200 underline decoration-gray-500 underline-offset-4 transition-colors duration-150 hover:text-white hover:decoration-red-500 md:text-left"
+              >
+                rcarmenate95@gmail.com
+              </a>
             </div>
           </div>
         </Reveal>
