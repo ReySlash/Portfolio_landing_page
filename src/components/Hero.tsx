@@ -3,10 +3,13 @@ import verifiedIcon from "../assets/verifiedIcon.svg";
 
 function Hero() {
   return (
-    <section id="home" className="scroll-mt-24 px-2 lg:px-6  my-10">
+    <section
+      id="home"
+      className="mt-0 md:scroll-mt-24 px-2 lg:px-6 max-h-screen lg:my-10"
+    >
       {/* Column#1: Information */}
-      <div className="grid rounded-3xl  bg-black md:px-10 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:grid-cols-1 lg:grid-cols-2 border">
-        <div className="order-last content-center lg:order-first border border-gray-800 p-4 rounded-3xl bg-linear-to-br from-gray-950 via-black to-gray-900">
+      <div className="grid rounded-3xl  bg-black md:px-10 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] grid-cols-1 md:grid-cols-2">
+        <div className="order-last content-center md:order-first border border-gray-800 p-4 rounded-3xl bg-linear-to-br from-gray-950 via-black to-gray-900">
           <h1 className="text-left text-2xl lg:text-4xl">
             I'm a{" "}
             <span className="typewriter text-red-600">Frontend Developer.</span>
@@ -32,10 +35,10 @@ function Hero() {
         </div>
 
         {/* Column#2: Portrait */}
-        <div className="order-first lg:order-last p-5 h-full  bg-transparent">
+        <div className="order-first md:order-last p-5 h-full  bg-transparent">
           <div className="flex flex-col justify-center items-center relative overflow-hidden bg-transparent">
             <img
-              className="h-10/12 rounded-full opacity-50 bg-transparent"
+              className=" md:h-10/12 w-full md:w-auto rounded-full opacity-50 bg-transparent"
               src={portrait}
               alt="Portrait picture"
             />
