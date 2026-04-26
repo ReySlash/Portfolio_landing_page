@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "../assets/logoMark.png";
 
 const navLinks = ["home", "projects", "about", "contact"];
@@ -38,6 +38,7 @@ function CloseIcon() {
 function NavBar() {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     const sections = navLinks
@@ -90,8 +91,13 @@ function NavBar() {
     };
   }, []);
 
-  const handleLinkClick = () => {
+  const closeMenu = () => {
+    menuButtonRef.current?.focus();
     setIsMenuOpen(false);
+  };
+
+  const handleLinkClick = () => {
+    closeMenu();
   };
 
   return (
@@ -124,6 +130,7 @@ function NavBar() {
         </nav>
 
         <button
+          ref={menuButtonRef}
           type="button"
           className="flex max-w-20 items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700 md:hidden"
           aria-label={
@@ -143,7 +150,7 @@ function NavBar() {
             : "pointer-events-none opacity-0"
         }`}
         aria-hidden={!isMenuOpen}
-        onClick={() => setIsMenuOpen(false)}
+        onClick={closeMenu}
       />
 
       <aside
@@ -158,7 +165,7 @@ function NavBar() {
             type="button"
             className="flex items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700"
             aria-label="Close navigation menu"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={closeMenu}
           >
             <CloseIcon />
           </button>
