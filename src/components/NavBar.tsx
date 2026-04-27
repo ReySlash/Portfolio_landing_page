@@ -165,23 +165,25 @@ function NavBar() {
             </ul>
           </nav>
 
-          <button
-            ref={menuButtonRef}
-            type="button"
-            className="flex max-w-20 items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700 md:hidden"
-            aria-label={
-              isMenuOpen ? "Close navigation menu" : "Open navigation menu"
-            }
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-          >
-            {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
-          </button>
+          {isMenuOpen ? (
+            <div className="h-12 w-12 md:hidden" aria-hidden="true" />
+          ) : (
+            <button
+              ref={menuButtonRef}
+              type="button"
+              className="flex max-w-20 items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700 md:hidden"
+              aria-label="Open navigation menu"
+              aria-expanded={false}
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <MenuIcon />
+            </button>
+          )}
         </div>
       </header>
 
       <div
-        className={`fixed inset-0 z-40 overflow-hidden md:hidden ${
+        className={`fixed inset-0 z-60 overflow-hidden md:hidden ${
           isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
         aria-hidden={!isMenuOpen}
