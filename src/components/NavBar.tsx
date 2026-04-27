@@ -39,6 +39,7 @@ function NavBar() {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     const sections = navLinks
@@ -100,6 +101,12 @@ function NavBar() {
     closeMenu();
   };
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      closeButtonRef.current?.focus();
+    }
+  }, [isMenuOpen]);
+
   return (
     <header
       id="navbar"
@@ -158,10 +165,12 @@ function NavBar() {
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!isMenuOpen}
+        inert={!isMenuOpen}
       >
         <div className="mb-10 flex items-center justify-between">
           <img className="w-20" src={logo} alt="Logo" />
           <button
+            ref={closeButtonRef}
             type="button"
             className="flex items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700"
             aria-label="Close navigation menu"

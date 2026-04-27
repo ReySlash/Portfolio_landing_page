@@ -24,7 +24,9 @@ describe("Contact", () => {
   it("copies the email address to the clipboard", async () => {
     render(<Contact />);
 
-    fireEvent.click(screen.getByRole("button", { name: /copy to clipboard/i }));
+    fireEvent.click(
+      screen.getByRole("button", { name: /copy email to clipboard/i }),
+    );
 
     await waitFor(() => {
       expect(navigator.clipboard.writeText).toHaveBeenCalledWith(

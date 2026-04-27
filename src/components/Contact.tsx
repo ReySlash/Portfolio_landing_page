@@ -1,10 +1,34 @@
 import copyClipboard from "../assets/copyClipboardIcon.svg";
 import copiedClipboard from "../assets/copiedClipboardIcon.svg";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 
 function Contact() {
   const [copied, setCopied] = useState(false);
+  const resetCopiedTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (resetCopiedTimeoutRef.current !== null) {
+        window.clearTimeout(resetCopiedTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleCopyEmail = async () => {
+    await navigator.clipboard.writeText("rcarmenate95@gmail.com");
+    setCopied(true);
+
+    if (resetCopiedTimeoutRef.current !== null) {
+      window.clearTimeout(resetCopiedTimeoutRef.current);
+    }
+
+    resetCopiedTimeoutRef.current = window.setTimeout(() => {
+      setCopied(false);
+      resetCopiedTimeoutRef.current = null;
+    }, 5000);
+  };
+
   return (
     <section id="contact" className="scroll-mt-24 px-6 py-5 lg:px-20 lg:py-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-5">
@@ -40,17 +64,17 @@ function Contact() {
                 Visit GitHub
               </a>
               <button
+                type="button"
                 onClick={() => {
-                  navigator.clipboard.writeText("rcarmenate95@gmail.com");
-                  setCopied(true);
-                  setTimeout(() => setCopied(false), 5000);
+                  void handleCopyEmail();
                 }}
                 className="flex h-12 w-12 ps-3 pe-2 shrink-0 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+                aria-label={copied ? "Email copied to clipboard" : "Copy email to clipboard"}
               >
                 <img
                   className="h-5 w-5 brightness-0 invert"
                   src={copied ? copiedClipboard : copyClipboard}
-                  alt="Copy to clipboard"
+                  alt=""
                 />
               </button>
               <a

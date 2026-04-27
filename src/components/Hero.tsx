@@ -32,14 +32,16 @@ function Hero() {
         </div>
 
         {/* Column#2: Portrait */}
-        <div className="order-first md:order-last px-5 h-full  bg-transparent">
-          <div className="flex flex-col justify-center items-center relative overflow-hidden bg-transparent">
-            <img
-              className=" md:h-10/12 w-full md:w-auto rounded-full opacity-50 bg-transparent"
-              src={portrait}
-              alt="Portrait picture"
-            />
-            <div className="flex justify-flex items-center bg-transparent">
+        <div className="order-first h-full bg-transparent px-5 md:order-last">
+          <div className="flex flex-col items-center justify-center gap-3 bg-transparent">
+            <div className="aspect-square w-full max-w-72 overflow-hidden rounded-full md:max-w-md">
+              <img
+                className="h-full w-full bg-transparent object-cover opacity-50"
+                src={portrait}
+                alt="Portrait picture"
+              />
+            </div>
+            <div className="flex items-center bg-transparent">
               <p>@Reynaldo_Carmenate</p>
               <img className="w-5" src={verifiedIcon} alt="Verified icon" />
             </div>
