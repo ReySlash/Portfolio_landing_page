@@ -43,8 +43,8 @@ describe("NavBar", () => {
     fireEvent.click(openButton);
 
     expect(
-      screen.getAllByRole("button", { name: /close navigation menu/i }),
-    ).toHaveLength(2);
+      screen.getByRole("button", { name: /close navigation menu/i }),
+    ).toBeInTheDocument();
 
     fireEvent.click(screen.getAllByRole("link", { name: /^about$/i })[1]);
 
