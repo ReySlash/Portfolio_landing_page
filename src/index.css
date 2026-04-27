@@ -9,6 +9,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(24px);
