@@ -7,14 +7,14 @@ import Projects from "./components/Projects";
 
 const App = () => {
   return (
-    <>
+    <div className="overflow-x-clip pt-16 sm:pt-18">
       <NavBar />
       <Hero />
       <Projects />
       <About />
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 };
 

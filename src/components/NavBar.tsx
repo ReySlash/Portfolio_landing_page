@@ -3,6 +3,18 @@ import logo from "../assets/logoMark.png";
 
 const navLinks = ["home", "projects", "about", "contact"];
 
+function focusWithoutScroll(element: HTMLElement | null) {
+  if (!element) {
+    return;
+  }
+
+  try {
+    element.focus({ preventScroll: true });
+  } catch {
+    element.focus();
+  }
+}
+
 function MenuIcon() {
   return (
     <svg
@@ -46,55 +58,69 @@ function NavBar() {
       .map((link) => document.getElementById(link))
       .filter((section): section is HTMLElement => section !== null);
 
-    const updateActiveSection = () => {
-      const navbar = document.getElementById("navbar");
-      const navbarHeight = navbar?.getBoundingClientRect().height ?? 0;
-      const focusLine = navbarHeight + 24;
+    if (!sections.length) {
+      return;
+    }
 
-      const nearPageBottom =
-        window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+    let observer: IntersectionObserver | null = null;
+    let visibleSections = new Map<string, IntersectionObserverEntry>();
 
-      if (nearPageBottom) {
-        setActiveSection(sections.at(-1)?.id ?? "contact");
-        return;
-      }
+    const createObserver = () => {
+      const navbarHeight =
+        document.getElementById("navbar")?.getBoundingClientRect().height ?? 0;
 
-      let currentSection = sections[0]?.id ?? "home";
+      observer?.disconnect();
+      visibleSections = new Map<string, IntersectionObserverEntry>();
 
-      sections.forEach((section) => {
-        const { top } = section.getBoundingClientRect();
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const sectionId = (entry.target as HTMLElement).id;
 
-        if (top <= focusLine) {
-          currentSection = section.id;
-        }
-      });
+            if (entry.isIntersecting) {
+              visibleSections.set(sectionId, entry);
+              return;
+            }
 
-      setActiveSection(currentSection);
+            visibleSections.delete(sectionId);
+          });
+
+          const nextSection = [...visibleSections.values()]
+            .sort(
+              (entryA, entryB) =>
+                entryA.boundingClientRect.top - entryB.boundingClientRect.top,
+            )
+            .at(0)?.target.id;
+
+          if (nextSection) {
+            setActiveSection((currentSection) =>
+              currentSection === nextSection ? currentSection : nextSection,
+            );
+          }
+        },
+        {
+          rootMargin: `-${navbarHeight + 24}px 0px -55% 0px`,
+          threshold: [0, 0.2, 0.5, 1],
+        },
+      );
+
+      sections.forEach((section) => observer?.observe(section));
     };
 
-    const observer = new IntersectionObserver(
-      () => {
-        updateActiveSection();
-      },
-      {
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-      },
-    );
-    sections.forEach((section) => observer.observe(section));
-    window.addEventListener("scroll", updateActiveSection, { passive: true });
-    window.addEventListener("resize", updateActiveSection);
-    updateActiveSection();
+    createObserver();
+    window.addEventListener("resize", createObserver);
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", updateActiveSection);
-      window.removeEventListener("resize", updateActiveSection);
+      observer?.disconnect();
+      window.removeEventListener("resize", createObserver);
     };
   }, []);
 
   const closeMenu = () => {
-    menuButtonRef.current?.focus();
     setIsMenuOpen(false);
+    window.requestAnimationFrame(() => {
+      focusWithoutScroll(menuButtonRef.current);
+    });
   };
 
   const handleLinkClick = () => {
@@ -103,104 +129,112 @@ function NavBar() {
 
   useEffect(() => {
     if (isMenuOpen) {
-      closeButtonRef.current?.focus();
+      window.requestAnimationFrame(() => {
+        focusWithoutScroll(closeButtonRef.current);
+      });
     }
   }, [isMenuOpen]);
 
   return (
-    <header
-      id="navbar"
-      className="sticky top-0 z-20 w-full px-4 py-1 sm:px-6 lg:px-10 bg-black/50 backdrop-blur-sm"
-    >
-      <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between">
-        <a href="#home" className="inline shrink-0">
-          <img className="w-8" src={logo} alt="Logo" />
-        </a>
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 md:block">
-          <ul className="flex flex-row items-center gap-6 uppercase lg:gap-12">
-            {navLinks.map((link) => (
-              <li key={link}>
-                <a
-                  className={
-                    activeSection === link
-                      ? "text-red-500"
-                      : "text-white transition-colors duration-300 hover:text-red-500"
-                  }
-                  href={`#${link}`}
-                  onClick={handleLinkClick}
-                >
-                  {link}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <button
-          ref={menuButtonRef}
-          type="button"
-          className="flex max-w-20 items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700 md:hidden"
-          aria-label={
-            isMenuOpen ? "Close navigation menu" : "Open navigation menu"
-          }
-          aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-        >
-          {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
-        </button>
-      </div>
-
-      <div
-        className={`fixed inset-0 z-30 bg-black/45 transition-opacity duration-300 md:hidden ${
-          isMenuOpen
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-        }`}
-        aria-hidden={!isMenuOpen}
-        onClick={closeMenu}
-      />
-
-      <aside
-        className={`fixed top-0 right-0 z-40 flex h-screen w-72 max-w-[82vw] flex-col bg-black/95 px-6 py-6 shadow-2xl backdrop-blur transition-transform duration-300 ease-out md:hidden ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        aria-hidden={!isMenuOpen}
-        inert={!isMenuOpen}
+    <>
+      <header
+        id="navbar"
+        className="fixed inset-x-0 top-0 z-50 w-full border-b border-white/5 bg-black/90 px-4 py-1 sm:px-6 lg:px-10"
       >
-        <div className="mb-10 flex items-center justify-between">
-          <img className="w-20" src={logo} alt="Logo" />
+        <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between">
+          <a href="#home" className="inline shrink-0">
+            <img className="w-8" src={logo} alt="Logo" />
+          </a>
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 md:block">
+            <ul className="flex flex-row items-center gap-6 uppercase lg:gap-12">
+              {navLinks.map((link) => (
+                <li key={link}>
+                  <a
+                    className={
+                      activeSection === link
+                        ? "text-red-500"
+                        : "text-white transition-colors duration-300 hover:text-red-500"
+                    }
+                    href={`#${link}`}
+                    onClick={handleLinkClick}
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
           <button
-            ref={closeButtonRef}
+            ref={menuButtonRef}
             type="button"
-            className="flex items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700"
-            aria-label="Close navigation menu"
-            onClick={closeMenu}
+            className="flex max-w-20 items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700 md:hidden"
+            aria-label={
+              isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
           >
-            <CloseIcon />
+            {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
+      </header>
 
-        <nav className="flex-1">
-          <ul className="flex flex-col gap-6 text-lg uppercase">
-            {navLinks.map((link) => (
-              <li key={link}>
-                <a
-                  className={
-                    activeSection === link
-                      ? "block text-red-500"
-                      : "block text-white transition-colors duration-300 hover:text-red-500"
-                  }
-                  href={`#${link}`}
-                  onClick={handleLinkClick}
-                >
-                  {link}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </aside>
-    </header>
+      <div
+        className={`fixed inset-0 z-40 overflow-hidden md:hidden ${
+          isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+        aria-hidden={!isMenuOpen}
+      >
+        <div
+          className={`absolute inset-0 bg-black/45 transition-opacity duration-300 ${
+            isMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={closeMenu}
+        />
+
+        <aside
+          className={`absolute top-0 right-0 flex h-dvh w-72 max-w-[82vw] transform-gpu flex-col bg-black px-6 py-6 shadow-2xl transition-transform duration-300 ease-out ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          aria-hidden={!isMenuOpen}
+          inert={!isMenuOpen}
+        >
+          <div className="mb-10 flex items-center justify-between">
+            <img className="w-20" src={logo} alt="Logo" />
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="flex items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700"
+              aria-label="Close navigation menu"
+              onClick={closeMenu}
+            >
+              <CloseIcon />
+            </button>
+          </div>
+
+          <nav className="flex-1">
+            <ul className="flex flex-col gap-6 text-lg uppercase">
+              {navLinks.map((link) => (
+                <li key={link}>
+                  <a
+                    className={
+                      activeSection === link
+                        ? "block text-red-500"
+                        : "block text-white transition-colors duration-300 hover:text-red-500"
+                    }
+                    href={`#${link}`}
+                    onClick={handleLinkClick}
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </>
   );
 }
 
