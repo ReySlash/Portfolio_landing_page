@@ -6,7 +6,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 bg-linear-to-br px-6 lg:px-20 my-10 w-full"
+      className="scroll-mt-24 bg-linear-to-br lg:px-20 my-10 w-full"
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-5">
         <Reveal className="w-full space-y-4 text-left">

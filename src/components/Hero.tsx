@@ -3,10 +3,13 @@ import verifiedIcon from "../assets/verifiedIcon.svg";
 
 function Hero() {
   return (
-    <section id="home" className="mb-10 px-2 scroll-mt-24 lg:py-4 lg:px-6">
+    <section
+      id="home"
+      className="scroll-mt-24 py-auto min-h-screen flex items-center justify-center"
+    >
       {/* Column#1: Information */}
-      <div className="grid rounded-3xl  bg-black md:px-10  shadow-[0_0_0_1px_rgba(255,255,255,0.03)] grid-cols-1 md:grid-cols-2">
-        <div className="order-last content-center md:order-first border border-gray-800 p-4 rounded-3xl bg-linear-to-br from-gray-950 via-black to-gray-900">
+      <div className="grid rounded-3xl  bg-black md:px-10  shadow-[0_0_0_1px_rgba(255,255,255,0.03)] grid-cols-1 lg:grid-cols-2">
+        <div className="order-last content-center lg:order-first border border-gray-800 p-4 rounded-3xl bg-linear-to-br from-gray-950 via-black to-gray-900">
           <h1 className="text-left text-2xl lg:text-4xl">
             I'm a{" "}
             <span className="typewriter text-red-600">Frontend Developer.</span>
@@ -15,7 +18,7 @@ function Hero() {
             I build fast, responsive React applications with modern UI and clean
             component architecture.
           </h3>
-          <div className="flex flex-col justify-center gap-3  sm:flex-row">
+          <div className="flex flex-row justify-center gap-3 py-5">
             <a
               href="#projects"
               className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-red-600 px-2 md:px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:max-w-48"
@@ -32,7 +35,7 @@ function Hero() {
         </div>
 
         {/* Column#2: Portrait */}
-        <div className="order-first h-full bg-transparent px-5 md:order-last">
+        <div className="order-first h-full bg-transparent px-5 lg:order-last">
           <div className="flex flex-col items-center justify-center gap-3 bg-transparent">
             <div className="aspect-square w-full max-w-72 overflow-hidden rounded-full md:max-w-md">
               <img
