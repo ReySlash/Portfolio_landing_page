@@ -5,10 +5,10 @@ function Hero() {
   return (
     <section
       id="home"
-      className="scroll-mt-24 py-auto min-h-screen flex items-center justify-center"
+      className="scroll-mt-24 h-[calc(100vh-80px)] flex items-center justify-center"
     >
       {/* Column#1: Information */}
-      <div className="grid rounded-3xl  bg-black md:px-10  shadow-[0_0_0_1px_rgba(255,255,255,0.03)] grid-cols-1 lg:grid-cols-2">
+      <div className="grid rounded-3xl  bg-black  shadow-[0_0_0_1px_rgba(255,255,255,0.03)] grid-cols-1 lg:grid-cols-2">
         <div className="order-last content-center lg:order-first border border-gray-800 p-4 rounded-3xl bg-linear-to-br from-gray-950 via-black to-gray-900">
           <h1 className="text-left text-2xl lg:text-4xl">
             I'm a{" "}

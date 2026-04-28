@@ -38,7 +38,7 @@ function AboutCard() {
       <div className="my-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
         {highlights.map((item) => (
           <div
-            className="rounded-2xl border border-gray-800 bg-white/3 px-4 py-4 text-left"
+            className="rounded-2xl border border-gray-800 bg-white/3 px-4 py-4 text-center md:text-left"
             key={item.label}
           >
             <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
@@ -51,17 +51,17 @@ function AboutCard() {
         ))}
       </div>
 
-      <div className="flex flex-col gap-3 sm:flex-row">
+      <div className="flex flex-row gap-3">
         <a
           href="#projects"
-          className="flex flex-1 items-center justify-center rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
+          className="flex flex-1 items-center justify-center text-center rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
         >
           View Projects
         </a>
 
         <a
           href="#contact"
-          className="flex flex-1 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+          className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
         >
           Contact Me
         </a>
