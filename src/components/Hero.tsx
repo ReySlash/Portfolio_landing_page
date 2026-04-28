@@ -5,7 +5,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="scroll-mt-24 h-[calc(100vh-80px)] flex items-center justify-center"
+      className="scroll-mt-24 flex min-h-[calc(100dvh-80px)] items-center justify-center py-6 sm:py-8"
     >
       {/* Column#1: Information */}
       <div className="grid rounded-3xl  bg-black  shadow-[0_0_0_1px_rgba(255,255,255,0.03)] grid-cols-1 lg:grid-cols-2">
