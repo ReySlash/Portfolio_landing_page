@@ -52,7 +52,7 @@ function Contact() {
                   href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex min-h-12 w-50 items-center justify-center rounded-xl bg-red-600 px-auto py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:min-w-44 sm:w-auto"
+                  className="flex min-h-12 w-45 items-center justify-center rounded-xl bg-red-600 px-auto py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:min-w-44 sm:w-auto"
                 >
                   Connect on LinkedIn
                 </a>
@@ -60,7 +60,7 @@ function Contact() {
                   href="https://github.com/ReySlash"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex min-h-12 w-50 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-auto py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:min-w-44 sm:w-auto"
+                  className="flex min-h-12 w-45 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-auto py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:min-w-44 sm:w-auto"
                 >
                   Visit GitHub
                 </a>

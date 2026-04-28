@@ -21,7 +21,7 @@ function AboutDescription() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="rounded-3xl border border-gray-800 bg-gray-950/90 p-6 lg:p-8">
+      <div className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 lg:p-8">
         <p className="text-left text-lg leading-8 text-gray-200">
           I am a frontend developer focused on building practical web products
           with modern design, solid structure, and clear user flows. My
@@ -31,7 +31,7 @@ function AboutDescription() {
       </div>
 
       <div className="grid gap-4 lg:grid-cols-[1.2fr_1fr] min-h-full">
-        <div className="h-full rounded-3xl border border-gray-800 bg-gray-950 p-5 lg:p-6">
+        <div className="h-full rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-5 lg:p-6">
           <div className="mb-4 flex items-center justify-between gap-4">
             <h3 className="text-left text-2xl font-semibold text-white">
               Core Skills
@@ -52,7 +52,7 @@ function AboutDescription() {
           </div>
         </div>
 
-        <div className="h-full rounded-3xl border border-gray-800 bg-gray-950 p-5 lg:p-6">
+        <div className="h-full rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-5 lg:p-6">
           <div className="mb-4 flex items-center justify-between gap-4">
             <h3 className="text-left text-2xl font-semibold text-white">
               Current Focus
