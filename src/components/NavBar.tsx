@@ -64,6 +64,22 @@ function NavBar() {
 
     let observer: IntersectionObserver | null = null;
     let visibleSections = new Map<string, IntersectionObserverEntry>();
+    const lastSectionId = navLinks.at(-1);
+
+    const setSectionFromViewport = () => {
+      if (!lastSectionId) {
+        return;
+      }
+
+      const viewportBottom = window.innerHeight + window.scrollY;
+      const documentBottom = document.documentElement.scrollHeight;
+
+      if (viewportBottom >= documentBottom - 4) {
+        setActiveSection((currentSection) =>
+          currentSection === lastSectionId ? currentSection : lastSectionId,
+        );
+      }
+    };
 
     const createObserver = () => {
       const navbarHeight =
@@ -105,14 +121,17 @@ function NavBar() {
       );
 
       sections.forEach((section) => observer?.observe(section));
+      setSectionFromViewport();
     };
 
     createObserver();
     window.addEventListener("resize", createObserver);
+    window.addEventListener("scroll", setSectionFromViewport, { passive: true });
 
     return () => {
       observer?.disconnect();
       window.removeEventListener("resize", createObserver);
+      window.removeEventListener("scroll", setSectionFromViewport);
     };
   }, []);
 

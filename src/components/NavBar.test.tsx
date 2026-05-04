@@ -52,4 +52,34 @@ describe("NavBar", () => {
       screen.getByRole("button", { name: /open navigation menu/i }),
     ).toBeInTheDocument();
   });
+
+  it("highlights contact when scrolled to the bottom of the page", () => {
+    renderNavBar();
+
+    fireEvent.click(
+      screen.getByRole("button", { name: /open navigation menu/i }),
+    );
+
+    Object.defineProperty(window, "innerHeight", {
+      configurable: true,
+      value: 800,
+    });
+    Object.defineProperty(window, "scrollY", {
+      configurable: true,
+      value: 1200,
+    });
+    Object.defineProperty(document.documentElement, "scrollHeight", {
+      configurable: true,
+      value: 2000,
+    });
+
+    fireEvent.scroll(window);
+
+    const [desktopContactLink, mobileContactLink] = screen.getAllByRole("link", {
+      name: /^contact$/i,
+    });
+
+    expect(desktopContactLink).toHaveClass("text-red-500");
+    expect(mobileContactLink).toHaveClass("text-red-500");
+  });
 });
