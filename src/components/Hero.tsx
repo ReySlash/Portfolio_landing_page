@@ -11,8 +11,7 @@ function Hero() {
       <div className="grid rounded-3xl  bg-black  shadow-[0_0_0_1px_rgba(255,255,255,0.03)] grid-cols-1 lg:grid-cols-2">
         <div className="order-last content-center lg:order-first border border-gray-800 p-4 rounded-3xl bg-linear-to-br from-gray-950 via-black to-gray-900">
           <h1 className="text-left text-2xl lg:text-4xl">
-            I'm a{" "}
-            <span className="typewriter text-red-600">Frontend Developer.</span>
+            I'm a <span className="text-red-600">Frontend Developer.</span>
           </h1>
           <h3 className="text-left text-2xl">
             I build fast, responsive React applications with modern UI and clean
