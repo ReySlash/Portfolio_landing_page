@@ -7,7 +7,7 @@ import Projects from "./components/Projects";
 
 const App = () => {
   return (
-    <div className="flex flex-col overflow-x-clip pt-16 px-2 md:px-4 lg:px-20 gap-10">
+    <div className="container px-2 mx-auto flex flex-col overflow-x-clip pt-16 gap-10">
       <NavBar />
       <Hero />
       <Projects />

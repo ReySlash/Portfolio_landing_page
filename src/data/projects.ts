@@ -21,6 +21,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com/reyslash/job-application-tracker",
     thumbnail: JatThumbnail,
   },
+
   // Add more projects here
 ];
 

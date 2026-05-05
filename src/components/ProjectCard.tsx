@@ -8,15 +8,16 @@ function ProjectCard({ project }: Props) {
   return (
     <div className="flex flex-col gap-2 rounded-xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] hover:border-red-600">
       <img
-        className="aspect-16/10 rounded-t-xl border border-gray-900 object-cover"
+        className="aspect-10/5 rounded-t-xl border border-gray-900 object-cover"
         src={project.thumbnail}
         alt={project.name}
       />
-      <div className="flex flex-col gap-2 px-4 pb-4">
-        <h3 className="text-2xl font-bold tracking-tight">{project.name}</h3>
-        <p className="leading-7 text-gray-300">{project.description}</p>
-
-        <div className="flex flex-wrap items-center gap-3 py-4 text-sm">
+      <div className="flex flex-col gap-1 px-4 pb-2">
+        <div>
+          <h3 className="text-2xl font-bold tracking-tight">{project.name}</h3>
+          <p className="leading-7 text-gray-300">{project.description}</p>
+        </div>
+        <div className="flex flex-wrap items-center gap-1 py-1 text-sm">
           {project.techTags.map((tag) => (
             <span
               className="rounded-full border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 transition-colors duration-150 hover:border-red-500/50 hover:text-white"
@@ -26,7 +27,7 @@ function ProjectCard({ project }: Props) {
             </span>
           ))}
         </div>
-        <div className="flex gap-4 border-t border-gray-900 pt-4">
+        <div className="flex gap-4 border-t border-gray-900 pt-2">
           {project.liveDemoUrl && (
             <a
               className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:max-w-48"
