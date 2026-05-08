@@ -10,15 +10,15 @@ function AboutCard() {
   ];
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] lg:p-8">
-      <div className="mb-3 flex items-start justify-between gap-1">
+    <div className="overflow-hidden rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] h-full flex flex-col justify-between gap-3">
+      <div className="mb-3 flex items-start justify-between">
         <span className="inline-flex rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
           Open to opportunities
         </span>
       </div>
 
-      <div className="flex flex-col items-center text-center">
-        <div className="relative mb-1">
+      <div className="flex flex-col items-center text-center gap-1">
+        <div className="relative">
           <div className="absolute inset-0 rounded-full bg-red-600/20 blur-2xl" />
           <img
             className="relative mx-auto h-44 w-44 rounded-full border-4 border-red-600/80 object-cover shadow-[0_20px_60px_rgba(220,38,38,0.25)]"
@@ -30,23 +30,19 @@ function AboutCard() {
         <h3 className="text-2xl font-bold text-white">
           Reynaldo Carmenate Arias
         </h3>
-        <p className="mt-1 text-lg font-medium text-red-500">
-          Frontend Developer
-        </p>
+        <p className="text-lg font-medium text-red-500">Frontend Developer</p>
       </div>
 
-      <div className="my-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+      <div className="gap-1 grid sm:gap-3 sm:grid-cols-3 lg:gap-1 lg:grid-cols-1 xl:gap-3 xl:grid-cols-3">
         {highlights.map((item) => (
           <div
-            className="rounded-2xl border border-gray-800 bg-white/3 px-4 py-4 text-center md:text-left"
+            className="rounded-2xl border border-gray-800 bg-white/3 px-4 py-2 text-center md:text-left"
             key={item.label}
           >
             <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
               {item.label}
             </p>
-            <p className="mt-2 text-sm font-semibold text-white">
-              {item.value}
-            </p>
+            <p className="text-sm font-semibold text-white">{item.value}</p>
           </div>
         ))}
       </div>
@@ -67,7 +63,7 @@ function AboutCard() {
         </a>
       </div>
 
-      <div className="mt-6 flex items-center justify-center gap-4 border-t border-gray-800 pt-6">
+      <div className="h-20 flex items-center justify-center gap-4 border-t border-gray-800">
         <a
           className="rounded-xl border border-gray-800 bg-gray-900 p-3 transition-all duration-150 hover:scale-105 hover:cursor-pointer hover:border-gray-600 hover:bg-gray-800 active:scale-95"
           href="https://github.com/ReySlash"

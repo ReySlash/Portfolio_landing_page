@@ -20,8 +20,8 @@ function AboutDescription() {
   ];
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 lg:p-8">
+    <div className="flex flex-col gap-6 h-full">
+      <div className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-3 lg:p-6">
         <p className="text-left text-lg leading-8 text-gray-200">
           I am a frontend developer focused on building practical web products
           with modern design, solid structure, and clear user flows. My
@@ -30,9 +30,9 @@ function AboutDescription() {
         </p>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[1.2fr_1fr] min-h-full">
-        <div className="h-full rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-5 lg:p-6">
-          <div className="mb-4 flex items-center justify-between gap-4">
+      <div className="grid gap-4 lg:grid-cols-[1.2fr_1fr] h-full">
+        <div className="flex flex-col h-full rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-3 lg:p-6 gap-4">
+          <div className="flex items-center justify-between gap-4">
             <h3 className="text-left text-2xl font-semibold text-white">
               Core Skills
             </h3>
@@ -40,15 +40,17 @@ function AboutDescription() {
               Current toolkit
             </span>
           </div>
-          <div className="flex flex-wrap gap-3 items-center text-sm font-medium py-3 lg:py-10">
-            {coreSkills.map((skill) => (
-              <span
-                className="rounded-full border py-3 border-gray-700 bg-gray-900 px-3 text-gray-100 transition-colors duration-150 hover:border-red-500/50 hover:text-white"
-                key={skill}
-              >
-                {skill}
-              </span>
-            ))}
+          <div className="flex flex-col h-full justify-center">
+            <ul className="flex flex-wrap gap-3 items-center text-sm font-medium">
+              {coreSkills.map((skill) => (
+                <li
+                  className="rounded-full border py-3 border-gray-700 bg-gray-900 px-3 text-gray-100 transition-colors duration-150 hover:border-red-500/50 hover:text-white"
+                  key={skill}
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
