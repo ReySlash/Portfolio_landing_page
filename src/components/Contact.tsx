@@ -46,7 +46,7 @@ function Contact() {
           delay={80}
         >
           <div className="flex justify-center">
-            <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:flex-wrap md:gap-4">
+            <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:flex-wrap">
               <div className="flex flex-row gap-3">
                 <a
                   href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
@@ -64,25 +64,25 @@ function Contact() {
                 >
                   Visit GitHub
                 </a>
+                <button
+                  type="button"
+                  onClick={() => {
+                    void handleCopyEmail();
+                  }}
+                  className="flex h-12 w-12 ps-3 pe-2 shrink-0 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+                  aria-label={
+                    copied
+                      ? "Email copied to clipboard"
+                      : "Copy email to clipboard"
+                  }
+                >
+                  <img
+                    className="h-5 w-5 brightness-0 invert"
+                    src={copied ? copiedClipboard : copyClipboard}
+                    alt=""
+                  />
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => {
-                  void handleCopyEmail();
-                }}
-                className="flex h-12 w-12 ps-3 pe-2 shrink-0 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
-                aria-label={
-                  copied
-                    ? "Email copied to clipboard"
-                    : "Copy email to clipboard"
-                }
-              >
-                <img
-                  className="h-5 w-5 brightness-0 invert"
-                  src={copied ? copiedClipboard : copyClipboard}
-                  alt=""
-                />
-              </button>
               <a
                 href="mailto:rcarmenate95@gmail.com?subject=Portfolio%20Inquiry"
                 className="select-none break-all text-center text-gray-200 underline decoration-gray-500 underline-offset-4 transition-colors duration-150 hover:text-white hover:decoration-red-500 md:text-left"
