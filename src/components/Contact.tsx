@@ -59,7 +59,7 @@ function Contact() {
                 href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-1 items-center justify-center text-center rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
+                className="flex flex-1 items-center justify-center text-center rounded-xl bg-red-600 px-auto py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
               >
                 Connect on LinkedIn
               </a>
