@@ -12,11 +12,21 @@ describe("Projects", () => {
     expect(
       screen.getByRole("img", { name: /job applications tracker/i }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /live demo/i })).toHaveAttribute(
+    expect(
+      screen.getByRole("img", { name: /digital clip agency portfolio/i }),
+    ).toBeInTheDocument();
+
+    const liveDemoLinks = screen.getAllByRole("link", { name: /live demo/i });
+    const githubLinks = screen.getAllByRole("link", { name: /github/i });
+
+    expect(liveDemoLinks).toHaveLength(2);
+    expect(githubLinks).toHaveLength(2);
+
+    expect(liveDemoLinks[0]).toHaveAttribute(
       "href",
       "https://reyslash.github.io/job-application-tracker/",
     );
-    expect(screen.getByRole("link", { name: /github/i })).toHaveAttribute(
+    expect(githubLinks[0]).toHaveAttribute(
       "href",
       "https://github.com/reyslash/job-application-tracker",
     );

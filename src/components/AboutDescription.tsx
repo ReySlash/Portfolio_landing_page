@@ -5,17 +5,19 @@ function AboutDescription() {
     "JavaScript",
     "TypeScript",
     "React",
+    "Next.js",
     "Tailwind CSS",
     "Git",
     "SQL",
     "Python",
+    "REST APIs",
     "Agile Methodologies",
   ];
 
   const currentFocus = [
-    "Building responsive React apps",
-    "Improving component architecture",
-    "Learning Next.js and fullstack basics",
+    "Building full-stack applications with Next.js",
+    "Designing scalable and reusable component systems",
+    "Working with APIs, databases, and modern web architecture",
     "Bringing a data-aware, product-minded perspective",
   ];
 
@@ -23,7 +25,7 @@ function AboutDescription() {
     <div className="flex flex-col gap-6 h-full">
       <div className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-3 lg:p-6">
         <p className="text-left text-lg leading-8 text-gray-200">
-          I am a frontend developer focused on building practical web products
+          I am a full-stack developer focused on building practical web products
           with modern design, solid structure, and clear user flows. My
           background in data and business helps me think beyond visuals and pay
           attention to how interfaces support decisions, usability, and growth.
@@ -65,8 +67,11 @@ function AboutDescription() {
           </div>
           <ul className="space-y-4 text-left leading-7 text-gray-100">
             {currentFocus.map((focus) => (
-              <li className="flex gap-3 rounded-2xl bg-white/3 p-3" key={focus}>
-                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-red-600" />
+              <li
+                className="flex justify-start gap-3 rounded-2xl bg-white/3 p-3"
+                key={focus}
+              >
+                <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-red-600" />
                 <span className="text-gray-200">{focus}</span>
               </li>
             ))}

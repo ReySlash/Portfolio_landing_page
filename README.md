@@ -2,12 +2,12 @@
 
 A responsive developer portfolio built with React, TypeScript, Vite, and Tailwind CSS.
 
-The site is designed to present production-ready work, highlight practical frontend skills, and provide clear contact paths for recruiters or collaborators.
+The site is designed to present production-ready work, highlight practical full-stack and frontend skills, and provide clear contact paths for recruiters or collaborators.
 
 ## Purpose
 
 - Present projects in a clean, professional format
-- Demonstrate real-world frontend structure and UI implementation
+- Demonstrate real-world React, Next.js, and product-focused development work
 - Provide a polished central hub for portfolio, contact, and professional links
 
 ## Tech Stack
@@ -24,7 +24,8 @@ The site is designed to present production-ready work, highlight practical front
 - Responsive layout across mobile and desktop
 - Sticky navigation with active-section highlighting
 - Scroll reveal animation for main content blocks
-- Data-driven projects section with live demo and GitHub links
+- Data-driven projects section with live demo, GitHub links, and project thumbnails
+- Updated messaging around full-stack and Next.js capabilities
 - Contact section with LinkedIn, GitHub, copy-email, and `mailto` access
 - Minimal footer and production-ready build setup
 

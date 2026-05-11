@@ -4,9 +4,9 @@ import linkedinIcon from "../assets/linkedin.svg";
 
 function AboutCard() {
   const highlights = [
-    { label: "Primary Stack", value: "React + TypeScript" },
-    { label: "Focus", value: "Responsive UI" },
-    { label: "Mindset", value: "Product + data aware" },
+    { label: "Primary Stack", value: "Next.js + TypeScript" },
+    { label: "Focus", value: "Scalable Web Applications" },
+    { label: "Mindset", value: "Business + product perspective" },
   ];
 
   return (
@@ -30,7 +30,7 @@ function AboutCard() {
         <h3 className="text-2xl font-bold text-white">
           Reynaldo Carmenate Arias
         </h3>
-        <p className="text-lg font-medium text-red-500">Frontend Developer</p>
+        <p className="text-lg font-medium text-red-500">Full-Stack Developer</p>
       </div>
 
       <div className="gap-1 grid sm:gap-3 sm:grid-cols-3 lg:gap-1 lg:grid-cols-1 xl:gap-3 xl:grid-cols-3">

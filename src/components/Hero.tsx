@@ -1,5 +1,4 @@
 import portrait from "../assets/image.jpg";
-import verifiedIcon from "../assets/verifiedIcon.svg";
 
 function Hero() {
   return (
@@ -10,12 +9,12 @@ function Hero() {
       {/* Column#1: Information */}
       <div className="grid rounded-3xl  bg-black  shadow-[0_0_0_1px_rgba(255,255,255,0.03)] grid-cols-1 lg:grid-cols-2">
         <div className="order-last content-center lg:order-first border border-gray-800 p-4 rounded-3xl bg-linear-to-br from-gray-950 via-black to-gray-900">
-          <h1 className="text-left text-2xl lg:text-4xl">
-            I'm a <span className="text-red-600">Frontend Developer.</span>
+          <h1 className="text-left text-3xl lg:text-4xl">
+            I'm a <span className="text-red-600">Full-Stack Developer.</span>
           </h1>
-          <h3 className="text-left text-2xl">
-            I build fast, responsive React applications with modern UI and clean
-            component architecture.
+          <h3 className="text-left text-3xl">
+            I build fast and responsive Next.js applications with modern UI and
+            clean component architecture.
           </h3>
           <div className="flex flex-row justify-center gap-3 py-5">
             <a
@@ -38,14 +37,10 @@ function Hero() {
           <div className="flex flex-col items-center justify-center gap-3 bg-transparent">
             <div className="aspect-square w-full max-w-72 overflow-hidden rounded-full md:max-w-md">
               <img
-                className="h-full w-full bg-transparent object-cover opacity-50"
+                className="h-full w-full bg-transparent object-cover opacity-80"
                 src={portrait}
                 alt="Portrait picture"
               />
-            </div>
-            <div className="flex items-center bg-transparent">
-              <p>@Reynaldo_Carmenate</p>
-              <img className="w-5" src={verifiedIcon} alt="Verified icon" />
             </div>
           </div>
         </div>
