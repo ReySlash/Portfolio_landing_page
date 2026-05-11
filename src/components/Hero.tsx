@@ -12,7 +12,7 @@ function Hero() {
           <h1 className="text-left text-2xl lg:text-4xl">
             I'm a <span className="text-red-600">Full-Stack Developer.</span>
           </h1>
-          <h3 className="text-left text-xl">
+          <h3 className="text-left text-xl lg:text-2xl">
             I build fast and responsive Next.js applications with modern UI and
             clean component architecture.
           </h3>
