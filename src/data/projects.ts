@@ -1,6 +1,6 @@
 import type { Project } from "../types/projectType";
 import JatThumbnail from "./thumbnails/JATPicture.jpg";
-import DigitalClipAgencyThumbnail from "./thumbnails/DCAPicture.jpg";
+import DigitalClipAgencyThumbnail from "./thumbnails/DCAPicture.webp";
 
 const projects: Project[] = [
   {

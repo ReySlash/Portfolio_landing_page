@@ -47,14 +47,16 @@ function Contact() {
               <h2 className="text-4xl font-bold tracking-tight text-white lg:text-5xl">
                 Let's build something clear, modern, and useful.
               </h2>
-              <a
-                href="mailto:rcarmenate95@gmail.com?subject=Portfolio%20Inquiry"
-                className="select-none break-all text-center text-gray-200 underline decoration-gray-500 underline-offset-4 transition-colors duration-150 hover:text-white hover:decoration-red-500 md:text-left"
-              >
-                rcarmenate95@gmail.com
-              </a>
+              <div className="text-center md:text-left w-full">
+                <a
+                  href="mailto:rcarmenate95@gmail.com?subject=Portfolio%20Inquiry"
+                  className="select-none break-all text-center text-gray-200 underline decoration-gray-500 underline-offset-4 transition-colors duration-150 hover:text-white hover:decoration-red-500"
+                >
+                  rcarmenate95@gmail.com
+                </a>
+              </div>
             </div>
-            <div className="col-span-1 grid grid-cols-2 md:grid-cols-1 gap-3 xl:px-5 items-center justify-between md:justify-center">
+            <div className="col-span-1 grid grid-cols-1 gap-3 xl:px-5 items-center justify-between md:justify-center">
               <a
                 href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
                 target="_blank"
