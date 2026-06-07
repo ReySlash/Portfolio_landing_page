@@ -7,7 +7,7 @@ const projects: Project[] = [
     id: 1,
     name: "Job Applications Tracker",
     description:
-      "A full-stack job application tracker to manage, analyze, and optimize your job search process. Includes filtering, sorting, searching, and a lightweight analytics dashboard to visualize your job search progress.",
+      "A full-stack job application tracker to manage, analyze, and optimize the job search process. Includes filtering, sorting, search, form validation, private demo workspaces, and a lightweight analytics dashboard. The main live demo uses Supabase for fast recruiter access. A second production version using an Express.js REST API, Neon PostgreSQL, and Render is available from the GitHub README for technical review.",
     techTags: [
       "TypeScript",
       "React",
@@ -19,6 +19,7 @@ const projects: Project[] = [
       "Tailwind CSS",
       "Github Pages",
       "Supabase",
+      "Express.js",
     ],
     liveDemoUrl: "https://reyslash.github.io/job-application-tracker/",
     githubUrl: "https://github.com/reyslash/job-application-tracker",

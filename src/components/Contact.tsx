@@ -31,7 +31,7 @@ function Contact() {
 
   return (
     <section id="contact" className="scroll-mt-24">
-      <div className="mx-auto flex max-w-7xl flex-col gap-5">
+      <div className="flex w-full flex-col gap-5">
         <Reveal className="max-w-3xl space-y-4 text-left">
           <span className="inline-flex w-fit rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1 text-lg font-semibold uppercase tracking-[0.2em] text-red-400">
             Contact
@@ -97,7 +97,7 @@ function Contact() {
         </Reveal>
 
         <Reveal
-          className="text-left text-sm leading-7 text-gray-400"
+          className="text-left text-sm leading-7 text-gray-400 px-6"
           delay={140}
         >
           Best way to reach me right now: LinkedIn for professional contact,
