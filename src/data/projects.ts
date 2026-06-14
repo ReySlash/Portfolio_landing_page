@@ -1,6 +1,7 @@
 import type { Project } from "../types/projectType";
 import JatThumbnail from "./thumbnails/JATPicture.jpg";
 import DigitalClipAgencyThumbnail from "./thumbnails/DCAPicture.webp";
+import TasteBoardThumbnail from "./thumbnails/TasteBoardThumbnail.webp";
 
 const projects: Project[] = [
   {
@@ -47,6 +48,28 @@ const projects: Project[] = [
     liveDemoUrl: "https://digital-clip-agency-landing.vercel.app/",
     githubUrl: "https://github.com/ReySlash/Digital_Clip_Agency_landing",
     thumbnail: DigitalClipAgencyThumbnail,
+  },
+  {
+    id: 3,
+    name: "TasteBoard",
+    description:
+      "A modern recipe discovery app for browsing meals and cocktails, viewing detailed recipe pages, and saving favorites locally in the browser. Built with Next.js App Router and TypeScript, it includes category filtering, search, responsive mobile navigation, a slide-out filter drawer, dynamic SEO metadata, custom not-found handling, and automated tests for key UI and helper behavior.",
+    techTags: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "next-themes",
+      "React Icons",
+      "Vitest",
+      "Testing Library",
+      "jsdom",
+      "Vercel",
+    ],
+    liveDemoUrl: "https://taste-board-zeta.vercel.app/",
+    githubUrl: "https://github.com/ReySlash/taste-board",
+    thumbnail: TasteBoardThumbnail,
   },
 
   // Add more projects here

@@ -6,6 +6,7 @@ function AboutDescription() {
     "TypeScript",
     "React",
     "Next.js",
+    "Express.js",
     "Tailwind CSS",
     "Git",
     "SQL",
