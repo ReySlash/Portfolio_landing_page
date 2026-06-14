@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import projects from "../data/projects";
 import Projects from "./Projects";
 
 describe("Projects", () => {
@@ -19,8 +20,12 @@ describe("Projects", () => {
     const liveDemoLinks = screen.getAllByRole("link", { name: /live demo/i });
     const githubLinks = screen.getAllByRole("link", { name: /github/i });
 
-    expect(liveDemoLinks).toHaveLength(2);
-    expect(githubLinks).toHaveLength(2);
+    expect(liveDemoLinks).toHaveLength(
+      projects.filter((project) => project.liveDemoUrl).length,
+    );
+    expect(githubLinks).toHaveLength(
+      projects.filter((project) => project.githubUrl).length,
+    );
 
     expect(liveDemoLinks[0]).toHaveAttribute(
       "href",
