@@ -31,26 +31,27 @@ The site is designed to present production-ready work, highlight practical full-
 
 ## Local Development
 
-Install dependencies with the lockfile:
+Enable Corepack if needed, then install dependencies with the lockfile:
 
 ```bash
-npm ci
+corepack enable
+pnpm install --frozen-lockfile
 ```
 
 Start the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## Available Scripts
 
 ```bash
-npm run dev
-npm run lint
-npm run test
-npm run build
-npm run preview
+pnpm dev
+pnpm lint
+pnpm test
+pnpm build
+pnpm preview
 ```
 
 ## Testing
@@ -64,7 +65,7 @@ This project includes lightweight component tests for key UI flows:
 Run the test suite with:
 
 ```bash
-npm run test
+pnpm test
 ```
 
 ## Pre-Deploy Checklist
@@ -72,9 +73,9 @@ npm run test
 Before deploying, run:
 
 ```bash
-npm run lint
-npm run test
-npm run build
+pnpm lint
+pnpm test
+pnpm build
 ```
 
 Then manually verify:
@@ -90,13 +91,13 @@ Then manually verify:
 The production build output is generated in `dist/`:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 That folder can then be deployed to GitHub Pages or any static hosting provider.
 
 ## Dependency Locking
 
-Dependencies are intentionally pinned to exact versions in `package.json`, and the project includes a committed `package-lock.json`.
+Dependencies are intentionally pinned to exact versions in `package.json`, and the project includes a committed `pnpm-lock.yaml`.
 
-An `.npmrc` file is also included with `save-exact=true`, so future package installs are saved as exact versions instead of version ranges.
+An `.npmrc` file is also included with `save-exact=true`, so future `pnpm add` installs are saved as exact versions instead of version ranges.

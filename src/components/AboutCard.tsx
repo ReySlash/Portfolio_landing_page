@@ -1,4 +1,4 @@
-import portrait from "../assets/cardPortrait.jpg";
+import portrait from "../assets/AboutPortrait.webp";
 import githubIcon from "../assets/github.svg";
 import linkedinIcon from "../assets/linkedin.svg";
 
@@ -21,7 +21,7 @@ function AboutCard() {
         <div className="relative">
           <div className="absolute inset-0 rounded-full bg-red-600/20 blur-2xl" />
           <img
-            className="relative mx-auto h-44 w-44 rounded-full border-4 border-red-600/80 object-cover shadow-[0_20px_60px_rgba(220,38,38,0.25)]"
+            className="relative mx-auto h-44 w-44  rounded-full border-4 border-red-600/80 object-cover shadow-[0_20px_60px_rgba(220,38,38,0.25)]"
             src={portrait}
             alt="Portrait"
           />

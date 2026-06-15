@@ -1,5 +1,5 @@
-import portrait from "../assets/image.jpg";
-
+import HeroPortrait from "../assets/HeroPortrait.webp";
+// import HeroPortrait2 from "../assets/HeroPortrait2.png";
 function Hero() {
   return (
     <section
@@ -35,11 +35,24 @@ function Hero() {
         {/* Column#2: Portrait */}
         <div className="order-first h-full bg-transparent px-5 lg:order-last">
           <div className="flex flex-col items-center justify-center gap-3 bg-transparent">
-            <div className="aspect-square w-full max-w-72 overflow-hidden rounded-full md:max-w-md">
+            <div className="relative aspect-square w-full max-w-90 overflow-hidden rounded-full md:max-w-md">
               <img
-                className="h-full w-full bg-transparent object-cover opacity-80"
-                src={portrait}
+                className="h-full w-full bg-transparent object-cover object-[85%_center] opacity-80"
+                src={HeroPortrait}
                 alt="Portrait picture"
+                style={{
+                  maskImage:
+                    "radial-gradient(circle, black 58%, transparent 82%)",
+                  WebkitMaskImage:
+                    "radial-gradient(circle, black 58%, transparent 82%)",
+                }}
+              />
+              <div
+                className="pointer-events-none absolute inset-0 rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(circle, transparent 56%, rgba(0, 0, 0, 0.16) 72%, rgba(0, 0, 0, 0.55) 86%, rgba(0, 0, 0, 0.9) 100%)",
+                }}
               />
             </div>
           </div>
