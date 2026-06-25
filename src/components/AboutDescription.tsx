@@ -11,6 +11,7 @@ function AboutDescription() {
     "Git",
     "SQL",
     "Python",
+    "Docker",
     "REST APIs",
     "Agile Methodologies",
   ];
