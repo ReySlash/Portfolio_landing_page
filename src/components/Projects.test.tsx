@@ -27,13 +27,7 @@ describe("Projects", () => {
       projects.filter((project) => project.githubUrl).length,
     );
 
-    expect(liveDemoLinks[0]).toHaveAttribute(
-      "href",
-      "https://reyslash.github.io/job-application-tracker/",
-    );
-    expect(githubLinks[0]).toHaveAttribute(
-      "href",
-      "https://github.com/reyslash/job-application-tracker",
-    );
+    expect(liveDemoLinks[0]).toHaveAttribute("href", projects[0].liveDemoUrl);
+    expect(githubLinks[0]).toHaveAttribute("href", projects[0].githubUrl);
   });
 });
