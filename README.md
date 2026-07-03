@@ -107,6 +107,7 @@ The application code is now structured for standard Next.js hosting.
 
 Recommended target:
 - Vercel
+- Canonical production domain: `https://reyslash.com`
 
 Current repo state:
 - GitHub Actions deployment has been removed from this repo

@@ -6,9 +6,9 @@ function Contact() {
     <section id="contact" className="scroll-mt-24">
       <div className="flex w-full flex-col gap-5">
         <Reveal className="max-w-3xl space-y-4 text-left">
-          <span className="inline-flex w-fit rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1 text-lg font-semibold uppercase tracking-[0.2em] text-red-400">
+          <h2 className="w-fit rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1 text-lg font-semibold uppercase tracking-[0.2em] text-red-400">
             Contact
-          </span>
+          </h2>
         </Reveal>
 
         <Reveal
@@ -17,9 +17,9 @@ function Contact() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-center gap-3 md:flex-row md:flex-wrap">
             <div className="col-span-1 md:col-span-2 flex flex-col gap-5 justify-center items-start">
-              <h2 className="text-4xl font-bold tracking-tight  lg:text-5xl">
+              <p className="text-4xl font-bold tracking-tight text-white lg:text-5xl">
                 Let's build something clear, modern, and useful.
-              </h2>
+              </p>
               <div className="text-center md:text-left w-full">
                 <a
                   href="mailto:rcarmenate95@gmail.com?subject=Portfolio%20Inquiry"
