@@ -10,6 +10,11 @@ html {
 }
 
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-ready {
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -17,13 +22,13 @@ html {
     transform 600ms ease;
 }
 
-.reveal-visible {
+.reveal-ready.reveal-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal-ready {
     opacity: 1;
     transform: none;
     transition: none;

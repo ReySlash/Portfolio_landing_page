@@ -1,23 +1,36 @@
 # Portfolio Landing Page
 
-A responsive developer portfolio built with Next.js, React, TypeScript, and Tailwind CSS.
+A responsive developer portfolio built with Next.js App Router, React 19, TypeScript, and Tailwind CSS 4.
 
 The site is designed to present production-ready work, highlight practical full-stack and frontend skills, and provide clear contact paths for recruiters or collaborators.
 
 ## Purpose
 
 - Present projects in a clean, professional format
-- Demonstrate real-world React, Next.js, and product-focused development work
+- Demonstrate real-world Next.js, React, and product-focused development work
 - Provide a polished central hub for portfolio, contact, and professional links
 
 ## Tech Stack
 
-- React 19
 - Next.js 16 App Router
+- React 19
 - TypeScript
 - Tailwind CSS 4
+- Next Image for local asset optimization
+- PostCSS
 - Vitest + Testing Library
-- Vercel for deployment
+- ESLint 9
+- pnpm
+
+## Architecture Notes
+
+- Single-route portfolio rendered from `src/app/page.tsx`
+- Client components are used only where browser APIs are required:
+  - navigation section tracking
+  - reveal-on-scroll animation
+  - clipboard copy interaction
+- Static project data lives in `src/data/projects.ts`
+- Local images are handled through Next.js static imports
 
 ## Features
 
@@ -35,7 +48,7 @@ Enable Corepack if needed, then install dependencies with the lockfile:
 
 ```bash
 corepack enable
-pnpm install --frozen-lockfile --ignore-scripts
+pnpm install --frozen-lockfile
 ```
 
 Start the development server:
@@ -43,6 +56,8 @@ Start the development server:
 ```bash
 pnpm dev
 ```
+
+Note: this branch uses `next dev --webpack` and `next build --webpack`. That is intentional in this repo because Turbopack hit environment-specific permission issues during the migration.
 
 ## Available Scripts
 
@@ -88,14 +103,23 @@ Then manually verify:
 
 ## Deployment Notes
 
-This project is configured for standard Next.js deployment on Vercel.
+The application code is now structured for standard Next.js hosting.
 
-For a production build:
+Recommended target:
+- Vercel
+
+Current repo state:
+- GitHub Actions deployment has been removed from this repo
+- deployment is expected to be handled directly through Vercel instead of a repo-managed Pages pipeline
+
+For a production build locally:
 
 ```bash
 pnpm build
 pnpm start
 ```
+
+If deployment is migrated next, the workflow or hosting target should be updated before treating this branch as production-ready.
 
 ## Dependency Locking
 

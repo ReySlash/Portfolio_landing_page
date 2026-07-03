@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -10,13 +10,6 @@ type RevealProps = {
 
 function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   const elementRef = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
-
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  });
 
   useEffect(() => {
     const element = elementRef.current;
@@ -25,14 +18,26 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
       return;
     }
 
-    if (isVisible) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
+
+    const viewportHeight =
+      window.innerHeight || document.documentElement.clientHeight;
+    const bounds = element.getBoundingClientRect();
+    const isInitiallyInView =
+      bounds.top <= viewportHeight * 0.9 && bounds.bottom >= 0;
+
+    if (isInitiallyInView) {
+      return;
+    }
+
+    element.classList.add("reveal-ready");
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          element.classList.add("reveal-visible");
           observer.unobserve(entry.target);
         }
       },
@@ -47,12 +52,12 @@ function Reveal({ children, className = "", delay = 0 }: RevealProps) {
     return () => {
       observer.disconnect();
     };
-  }, [isVisible]);
+  }, []);
 
   return (
     <div
       ref={elementRef}
-      className={`reveal ${isVisible ? "reveal-visible" : ""} ${className}`.trim()}
+      className={`reveal ${className}`.trim()}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
