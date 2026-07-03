@@ -3,10 +3,13 @@ import EmailButton from "./EmailButton";
 
 function Contact() {
   return (
-    <section id="contact" className="scroll-mt-24">
+    <section id="contact" aria-labelledby="contact-heading" className="scroll-mt-24">
       <div className="flex w-full flex-col gap-5">
         <Reveal className="max-w-3xl space-y-4 text-left">
-          <h2 className="w-fit rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1 text-lg font-semibold uppercase tracking-[0.2em] text-red-400">
+          <h2
+            id="contact-heading"
+            className="w-fit rounded-full border border-red-500/30 bg-red-500/10 px-4 py-1 text-lg font-semibold uppercase tracking-[0.2em] text-red-400"
+          >
             Contact
           </h2>
         </Reveal>

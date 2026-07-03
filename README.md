@@ -119,7 +119,7 @@ Then manually verify:
 
 ## Deployment Notes
 
-The application code is now structured for standard Next.js hosting.
+The application is structured for standard Next.js hosting.
 
 Recommended target:
 - Vercel
@@ -142,8 +142,6 @@ Fallback for environments with Turbopack-specific issues:
 pnpm build:webpack
 pnpm start
 ```
-
-If deployment is migrated next, the workflow or hosting target should be updated before treating this branch as production-ready.
 
 ## Dependency Locking
 
