@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { vi } from "vitest";
 import Contact from "./Contact";
 
 describe("Contact", () => {
@@ -33,5 +34,27 @@ describe("Contact", () => {
         "rcarmenate95@gmail.com",
       );
     });
+  });
+
+  it("shows feedback when copying the email fails", async () => {
+    vi.mocked(navigator.clipboard.writeText).mockRejectedValueOnce(
+      new Error("Clipboard unavailable"),
+    );
+
+    render(<Contact />);
+
+    fireEvent.click(
+      screen.getByRole("button", { name: /copy email to clipboard/i }),
+    );
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole("button", {
+          name: /unable to copy email to clipboard/i,
+        }),
+      ).toBeInTheDocument();
+    });
+
+    expect(screen.getByText(/copy failed/i)).toBeInTheDocument();
   });
 });

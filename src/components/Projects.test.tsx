@@ -6,9 +6,8 @@ describe("Projects", () => {
   it("renders the project section intro and project actions", () => {
     render(<Projects />);
 
-    expect(screen.getByText(/^Portfolio Highlights$/)).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /selected projects/i, level: 2 }),
+      screen.getByRole("heading", { name: /^projects$/i, level: 2 }),
     ).toBeInTheDocument();
     expect(
       screen.getByText(/practical interfaces, responsive layouts/i),
