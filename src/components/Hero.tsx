@@ -1,6 +1,6 @@
 import Image from "next/image";
 import HeroPortrait from "../assets/HeroPortrait.webp";
-// import HeroPortrait2 from "../assets/HeroPortrait2.png";
+
 function Hero() {
   return (
     <section
