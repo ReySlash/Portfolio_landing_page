@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import ogImage from "../assets/OG-Image.webp";
 import "./globals.css";
 
 const siteUrl = "https://reyslash.com";
 const siteTitle = "Reynaldo Carmenate Arias | Full-Stack Developer";
 const siteDescription =
   "Portfolio of Reynaldo Carmenate Arias, a full-stack developer building modern web applications with practical UX and clean architecture.";
-const socialImage = "/logoMark.png";
+const socialImage = ogImage.src;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -23,12 +24,14 @@ export const metadata: Metadata = {
     images: [
       {
         url: socialImage,
-        alt: "ReySlash portfolio logo",
+        width: 1672,
+        height: 941,
+        alt: "ReySlash portfolio social preview",
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
     images: [socialImage],
