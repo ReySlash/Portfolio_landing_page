@@ -1,4 +1,7 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import logo from "../assets/logoMark.png";
 
 const navLinks = ["home", "projects", "about", "contact"];
@@ -126,7 +129,9 @@ function NavBar() {
 
     createObserver();
     window.addEventListener("resize", createObserver);
-    window.addEventListener("scroll", setSectionFromViewport, { passive: true });
+    window.addEventListener("scroll", setSectionFromViewport, {
+      passive: true,
+    });
 
     return () => {
       observer?.disconnect();
@@ -162,7 +167,7 @@ function NavBar() {
       >
         <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between">
           <a href="#home" className="inline shrink-0">
-            <img className="w-8" src={logo} alt="Logo" />
+            <Image className="w-8" src={logo} alt="Logo" priority />
           </a>
           <nav className="absolute left-1/2 hidden -translate-x-1/2 md:block">
             <ul className="flex flex-row items-center gap-6 uppercase lg:gap-12">
@@ -172,7 +177,7 @@ function NavBar() {
                     className={
                       activeSection === link
                         ? "text-red-500"
-                        : "text-white transition-colors duration-300 hover:text-red-500"
+                        : "transition-colors duration-300 hover:text-red-500"
                     }
                     href={`#${link}`}
                     onClick={handleLinkClick}
@@ -190,7 +195,7 @@ function NavBar() {
             <button
               ref={menuButtonRef}
               type="button"
-              className="flex max-w-20 items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700 md:hidden"
+              className="flex max-w-20 items-center justify-center rounded-full bg-gray-900 p-3 transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700 md:hidden"
               aria-label="Open navigation menu"
               aria-expanded={false}
               onClick={() => setIsMenuOpen(true)}
@@ -222,11 +227,11 @@ function NavBar() {
           inert={!isMenuOpen}
         >
           <div className="mb-10 flex items-center justify-between">
-            <img className="w-20" src={logo} alt="Logo" />
+            <Image className="w-20" src={logo} alt="Logo" priority />
             <button
               ref={closeButtonRef}
               type="button"
-              className="flex items-center justify-center rounded-full bg-gray-900 p-3 text-white transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700"
+              className="flex items-center justify-center rounded-full bg-gray-900 p-3 transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700"
               aria-label="Close navigation menu"
               onClick={closeMenu}
             >
@@ -242,7 +247,7 @@ function NavBar() {
                     className={
                       activeSection === link
                         ? "block text-red-500"
-                        : "block text-white transition-colors duration-300 hover:text-red-500"
+                        : "block transition-colors duration-300 hover:text-red-500"
                     }
                     href={`#${link}`}
                     onClick={handleLinkClick}

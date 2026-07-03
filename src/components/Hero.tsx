@@ -1,3 +1,4 @@
+import Image from "next/image";
 import HeroPortrait from "../assets/HeroPortrait.webp";
 // import HeroPortrait2 from "../assets/HeroPortrait2.png";
 function Hero() {
@@ -12,20 +13,20 @@ function Hero() {
           <h1 className="text-left text-2xl lg:text-4xl">
             I'm a <span className="text-red-600">Full-Stack Developer.</span>
           </h1>
-          <h3 className="text-left text-xl lg:text-2xl">
+          <h3 className="text-left text-xl lg:text-2xl ">
             I build fast and responsive Next.js applications with modern UI and
             clean component architecture.
           </h3>
           <div className="flex flex-row justify-center gap-3 py-5">
             <a
               href="#projects"
-              className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-red-600 px-2 md:px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:max-w-48"
+              className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-red-600 px-2 md:px-5 py-3 font-semibold transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:max-w-48"
             >
               View Projects
             </a>
             <a
               href="#contact"
-              className="flex min-h-12 flex-1 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-2 md:px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:max-w-48"
+              className="flex min-h-12 flex-1 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-2 md:px-5 py-3 font-semibold transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:max-w-48"
             >
               Contact Me
             </a>
@@ -36,10 +37,12 @@ function Hero() {
         <div className="order-first h-full bg-transparent px-5 lg:order-last">
           <div className="flex flex-col items-center justify-center gap-3 bg-transparent">
             <div className="relative aspect-square w-full max-w-90 overflow-hidden rounded-full md:max-w-md">
-              <img
+              <Image
                 className="h-full w-full bg-transparent object-cover object-[85%_center] opacity-80"
                 src={HeroPortrait}
                 alt="Portrait picture"
+                priority
+                sizes="(min-width: 1024px) 32rem, 90vw"
                 style={{
                   maskImage:
                     "radial-gradient(circle, black 58%, transparent 82%)",

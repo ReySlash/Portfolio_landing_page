@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export type Project = {
   id: number;
   name: string;
@@ -5,5 +7,5 @@ export type Project = {
   techTags: string[];
   liveDemoUrl?: string;
   githubUrl?: string;
-  thumbnail: string;
+  thumbnail: StaticImageData;
 };

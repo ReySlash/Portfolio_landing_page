@@ -1,3 +1,4 @@
+import Image from "next/image";
 import portrait from "../assets/AboutPortrait.webp";
 import githubIcon from "../assets/github.svg";
 import linkedinIcon from "../assets/linkedin.svg";
@@ -20,16 +21,15 @@ function AboutCard() {
       <div className="flex flex-col items-center text-center gap-1">
         <div className="relative">
           <div className="absolute inset-0 rounded-full bg-red-600/20 blur-2xl" />
-          <img
+          <Image
             className="relative mx-auto h-44 w-44  rounded-full border-4 border-red-600/80 object-cover shadow-[0_20px_60px_rgba(220,38,38,0.25)]"
             src={portrait}
             alt="Portrait"
+            sizes="11rem"
           />
         </div>
 
-        <h3 className="text-2xl font-bold text-white">
-          Reynaldo Carmenate Arias
-        </h3>
+        <h3 className="text-2xl font-bold">Reynaldo Carmenate Arias</h3>
         <p className="text-lg font-medium text-red-500">Full-Stack Developer</p>
       </div>
 
@@ -42,7 +42,7 @@ function AboutCard() {
             <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
               {item.label}
             </p>
-            <p className="text-sm font-semibold text-white">{item.value}</p>
+            <p className="text-sm font-semibold">{item.value}</p>
           </div>
         ))}
       </div>
@@ -50,14 +50,14 @@ function AboutCard() {
       <div className="flex flex-row gap-3">
         <a
           href="#projects"
-          className="flex flex-1 items-center justify-center text-center rounded-xl bg-red-600 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
+          className="flex flex-1 items-center justify-center text-center rounded-xl bg-red-600 px-5 py-3 font-semibold transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
         >
           View Projects
         </a>
 
         <a
           href="#contact"
-          className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+          className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
         >
           Contact Me
         </a>
@@ -71,10 +71,13 @@ function AboutCard() {
           rel="noreferrer"
           aria-label="Open GitHub profile"
         >
-          <img
+          <Image
             className="w-7 brightness-0 invert "
             src={githubIcon}
             alt="GitHub"
+            width={28}
+            height={28}
+            unoptimized
           />
         </a>
         <a
@@ -84,10 +87,13 @@ function AboutCard() {
           rel="noreferrer"
           aria-label="Open LinkedIn profile"
         >
-          <img
+          <Image
             className="w-11 brightness-0 invert "
             src={linkedinIcon}
             alt="LinkedIn"
+            width={44}
+            height={44}
+            unoptimized
           />
         </a>
       </div>

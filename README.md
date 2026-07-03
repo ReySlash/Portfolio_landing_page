@@ -1,6 +1,6 @@
 # Portfolio Landing Page
 
-A responsive developer portfolio built with React, TypeScript, Vite, and Tailwind CSS.
+A responsive developer portfolio built with Next.js, React, TypeScript, and Tailwind CSS.
 
 The site is designed to present production-ready work, highlight practical full-stack and frontend skills, and provide clear contact paths for recruiters or collaborators.
 
@@ -13,11 +13,11 @@ The site is designed to present production-ready work, highlight practical full-
 ## Tech Stack
 
 - React 19
+- Next.js 16 App Router
 - TypeScript
-- Vite
 - Tailwind CSS 4
 - Vitest + Testing Library
-- GitHub Pages for deployment
+- Vercel for deployment
 
 ## Features
 
@@ -35,7 +35,7 @@ Enable Corepack if needed, then install dependencies with the lockfile:
 
 ```bash
 corepack enable
-pnpm install --frozen-lockfile
+pnpm install --frozen-lockfile --ignore-scripts
 ```
 
 Start the development server:
@@ -51,7 +51,7 @@ pnpm dev
 pnpm lint
 pnpm test
 pnpm build
-pnpm preview
+pnpm start
 ```
 
 ## Testing
@@ -88,13 +88,14 @@ Then manually verify:
 
 ## Deployment Notes
 
-The production build output is generated in `dist/`:
+This project is configured for standard Next.js deployment on Vercel.
+
+For a production build:
 
 ```bash
 pnpm build
+pnpm start
 ```
-
-That folder can then be deployed to GitHub Pages or any static hosting provider.
 
 ## Dependency Locking
 

@@ -1,3 +1,8 @@
+"use client";
+
+"use client";
+
+import Image from "next/image";
 import copyClipboard from "../assets/copyClipboardIcon.svg";
 import copiedClipboard from "../assets/copiedClipboardIcon.svg";
 import { useEffect, useRef, useState } from "react";
@@ -44,13 +49,13 @@ function Contact() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-center gap-3 md:flex-row md:flex-wrap">
             <div className="col-span-1 md:col-span-2 flex flex-col gap-5 justify-center items-start">
-              <h2 className="text-4xl font-bold tracking-tight text-white lg:text-5xl">
+              <h2 className="text-4xl font-bold tracking-tight  lg:text-5xl">
                 Let's build something clear, modern, and useful.
               </h2>
               <div className="text-center md:text-left w-full">
                 <a
                   href="mailto:rcarmenate95@gmail.com?subject=Portfolio%20Inquiry"
-                  className="select-none break-all text-center text-gray-200 underline decoration-gray-500 underline-offset-4 transition-colors duration-150 hover:text-white hover:decoration-red-500"
+                  className="select-none break-all text-center text-gray-200 underline decoration-gray-500 underline-offset-4 transition-colors duration-150 hover:decoration-red-500"
                 >
                   rcarmenate95@gmail.com
                 </a>
@@ -61,7 +66,7 @@ function Contact() {
                 href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-1 items-center justify-center text-center rounded-xl bg-red-600 px-auto py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
+                className="flex flex-1 items-center justify-center text-center rounded-xl bg-red-600 px-auto py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
               >
                 Connect on LinkedIn
               </a>
@@ -69,7 +74,7 @@ function Contact() {
                 href="https://github.com/ReySlash"
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+                className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
               >
                 Visit GitHub
               </a>
@@ -78,19 +83,22 @@ function Contact() {
                 onClick={() => {
                   void handleCopyEmail();
                 }}
-                className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+                className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
                 aria-label={
                   copied
                     ? "Email copied to clipboard"
                     : "Copy email to clipboard"
                 }
               >
-                <img
+                <Image
                   className="h-5 w-5 brightness-0 invert"
                   src={copied ? copiedClipboard : copyClipboard}
-                  alt=""
+                  alt="Copy icon"
+                  width={20}
+                  height={20}
+                  unoptimized
                 />
-                Copy Email
+                {copied ? "Copied!" : "Copy Email"}
               </button>
             </div>
           </div>
