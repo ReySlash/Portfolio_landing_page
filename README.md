@@ -57,15 +57,25 @@ Start the development server:
 pnpm dev
 ```
 
-Note: this branch uses `next dev --webpack` and `next build --webpack`. That is intentional in this repo because Turbopack hit environment-specific permission issues during the migration.
+Default script behavior:
+
+- `pnpm dev` runs `next dev`
+- `pnpm build` runs `next build`
+
+Webpack fallback scripts are also available for environments where Turbopack has issues:
+
+- `pnpm dev:webpack`
+- `pnpm build:webpack`
 
 ## Available Scripts
 
 ```bash
 pnpm dev
+pnpm dev:webpack
+pnpm build
+pnpm build:webpack
 pnpm lint
 pnpm test
-pnpm build
 pnpm start
 ```
 
@@ -93,6 +103,12 @@ pnpm test
 pnpm build
 ```
 
+If the default Next/Turbopack build path fails in a constrained environment, use:
+
+```bash
+pnpm build:webpack
+```
+
 Then manually verify:
 
 - navbar links and active section highlighting
@@ -117,6 +133,13 @@ For a production build locally:
 
 ```bash
 pnpm build
+pnpm start
+```
+
+Fallback for environments with Turbopack-specific issues:
+
+```bash
+pnpm build:webpack
 pnpm start
 ```
 
