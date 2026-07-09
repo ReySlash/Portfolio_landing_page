@@ -5,7 +5,7 @@ import linkedinIcon from "../assets/linkedin.svg";
 
 function AboutCard() {
   const highlights = [
-    { label: "Primary Stack", value: "Next.js + TypeScript" },
+    { label: "Primary Stack", value: "Next.js + NestJS + PostgreSQL" },
     { label: "Focus", value: "Scalable Web Applications" },
     { label: "Mindset", value: "Business + product perspective" },
   ];

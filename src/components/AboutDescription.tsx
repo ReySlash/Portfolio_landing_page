@@ -6,6 +6,7 @@ function AboutDescription() {
     "TypeScript",
     "React",
     "Next.js",
+    "NestJS",
     "Express.js",
     "Tailwind CSS",
     "Git",
@@ -17,7 +18,7 @@ function AboutDescription() {
   ];
 
   const currentFocus = [
-    "Building full-stack applications with Next.js",
+    "Building full-stack applications with Next.js + NestJS",
     "Designing scalable and reusable component systems",
     "Working with APIs, databases, and modern web architecture",
     "Bringing a data-aware, product-minded perspective",
