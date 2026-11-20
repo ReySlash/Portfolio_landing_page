@@ -1,9 +1,40 @@
 import type { Project } from "../types/projectType";
+import KinetiQThumbnail from "./thumbnails/KinetiQThumbnail.webp";
 import JatThumbnail from "./thumbnails/JATPicture.jpg";
 import DigitalClipAgencyThumbnail from "./thumbnails/DCAPicture.webp";
 import TasteBoardThumbnail from "./thumbnails/TasteBoardThumbnail.webp";
 
 const projects: Project[] = [
+  {
+    id: 4,
+    name: "KinetiQ",
+    description:
+      "A full-stack fitness platform for modeling exercises, building reusable training routines and programs, tracking workout performance, and understanding progress through explainable analytics. The platform uses a Next.js frontend on Vercel, a Dockerized NestJS API on an Oracle Cloud VPS, and Neon PostgreSQL.",
+    techTags: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "React Hook Form",
+      "Zod",
+      "NestJS",
+      "Better Auth",
+      "Prisma",
+      "PostgreSQL",
+      "Vitest",
+      "React Testing Library",
+      "Playwright",
+      "Docker",
+      "Nginx",
+      "Oracle Cloud",
+      "Neon",
+      "Vercel",
+    ],
+    liveDemoUrl: "https://kinetiq.reyslash.com/",
+    githubUrl: "https://github.com/ReySlash/KinetiQ",
+    thumbnail: KinetiQThumbnail,
+  },
   {
     id: 1,
     name: "Job Applications Tracker",
