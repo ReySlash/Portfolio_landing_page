@@ -1,4 +1,5 @@
 import { Badge } from "./ui/badge";
+import { Card } from "./ui/card";
 
 function AboutDescription() {
   const coreSkills = [
@@ -28,17 +29,17 @@ function AboutDescription() {
 
   return (
     <div className="flex flex-col gap-6 h-full">
-      <div className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-3 lg:p-6">
+      <Card className="gap-0 rounded-3xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-3 lg:p-6">
         <p className="text-left text-lg leading-8 text-gray-200">
           I am a full-stack developer focused on building practical web products
           with modern design, solid structure, and clear user flows. My
           background in data and business helps me think beyond visuals and pay
           attention to how interfaces support decisions, usability, and growth.
         </p>
-      </div>
+      </Card>
 
       <div className="grid gap-4 lg:grid-cols-[1.2fr_1fr] h-full">
-        <div className="flex flex-col h-full rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-3 lg:p-6 gap-4">
+        <Card className="h-full gap-4 rounded-3xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-3 lg:p-6">
           <div className="flex items-center justify-between gap-4">
             <h3 className="text-left text-2xl font-semibold ">Core Skills</h3>
             <span className="text-xs uppercase tracking-[0.18em] text-gray-500">
@@ -59,9 +60,9 @@ function AboutDescription() {
               ))}
             </ul>
           </div>
-        </div>
+        </Card>
 
-        <div className="h-full rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-5 lg:p-6">
+        <Card className="h-full gap-4 rounded-3xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-5 lg:p-6">
           <div className="mb-4 flex items-center justify-between gap-4">
             <h3 className="text-left text-2xl font-semibold ">Current Focus</h3>
             <span className="text-xs uppercase tracking-[0.18em] text-gray-500">
@@ -79,7 +80,7 @@ function AboutDescription() {
               </li>
             ))}
           </ul>
-        </div>
+        </Card>
       </div>
     </div>
   );

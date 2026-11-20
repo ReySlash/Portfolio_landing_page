@@ -1,6 +1,7 @@
 import Reveal from "./Reveal";
 import EmailButton from "./EmailButton";
 import StyledLink from "./StyledLink";
+import { Card } from "./ui/card";
 
 function Contact() {
   return (
@@ -19,11 +20,8 @@ function Contact() {
           </h2>
         </Reveal>
 
-        <Reveal
-          className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] lg:p-8"
-          delay={80}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-center gap-3 md:flex-row md:flex-wrap">
+        <Reveal delay={80}>
+          <Card className="grid grid-cols-1 items-center justify-center gap-3 rounded-3xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:grid-cols-3 lg:p-8">
             <div className="col-span-1 md:col-span-2 flex flex-col gap-5 justify-center items-start">
               <p className="text-2xl font-bold tracking-tight text-white lg:text-3xl">
                 Let's build something clear, modern, and useful.
@@ -57,7 +55,7 @@ function Contact() {
               </StyledLink>
               <EmailButton />
             </div>
-          </div>
+          </Card>
         </Reveal>
 
         <Reveal

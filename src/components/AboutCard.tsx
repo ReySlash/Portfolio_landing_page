@@ -9,6 +9,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "./ui/tooltip";
+import { Card } from "./ui/card";
 
 function AboutCard() {
   const highlights = [
@@ -18,7 +19,7 @@ function AboutCard() {
   ];
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] h-full flex flex-col justify-between gap-3">
+    <Card className="h-full justify-between gap-3 overflow-hidden rounded-3xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]">
       <div className="mb-3 flex items-start justify-between">
         <Badge className="border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 hover:bg-emerald-500/10">
           Open to opportunities
@@ -118,7 +119,7 @@ function AboutCard() {
           <TooltipContent>LinkedIn</TooltipContent>
         </Tooltip>
       </div>
-    </div>
+    </Card>
   );
 }
 
