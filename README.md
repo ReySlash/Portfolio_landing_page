@@ -32,6 +32,13 @@ The site is designed to present production-ready work, highlight practical full-
 - Static project data lives in `src/data/projects.ts`
 - Local images are handled through Next.js static imports
 
+## Documentation
+
+The [`docs/`](./docs/) directory contains the project upgrade specifications and development workflow documentation:
+
+- [Project grid and detail pages](./docs/project-grid-and-details-spec.md)
+- [Branching and Vercel Preview workflow](./docs/branching-and-vercel-preview-workflow.md)
+
 ## Features
 
 - Responsive layout across mobile and desktop
