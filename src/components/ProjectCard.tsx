@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Project } from "../types/projectType";
 import StyledLink from "./StyledLink";
 import { Badge } from "./ui/badge";
+import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 
 type Props = {
   project: Project;
@@ -9,54 +10,57 @@ type Props = {
 
 function ProjectCard({ project }: Props) {
   return (
-    <div className="flex h-full flex-col gap-2 rounded-xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] hover:border-red-600">
+    <Card className="flex flex-col py-1 gap-1 overflow-hidden rounded-2xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]">
       <Image
-        className="aspect-10/5 rounded-t-xl border border-gray-900 object-cover"
+        className="aspect-[2.4/1] w-full border-b border-gray-900 object-cover"
         src={project.thumbnail}
         alt={project.name}
-        sizes="(min-width: 1024px) 50vw, 100vw"
+        sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
       />
-      <div className="flex flex-1 flex-col gap-1 px-4 pb-2">
-        <div>
-          <h3 className="text-2xl font-bold tracking-tight">{project.name}</h3>
-          <p className="leading-7 text-gray-300">{project.description}</p>
-        </div>
-        <div className="flex flex-wrap items-center gap-1 py-1 text-sm">
-          {project.techTags.map((tag) => (
+      <CardHeader className="gap-0 ">
+        <h3 className="text-lg font-bold tracking-tight">{project.name}</h3>
+      </CardHeader>
+      <CardContent className="flex flex-1 flex-col gap-1">
+        <p className="text-md leading-6 text-gray-300">
+          {project.shortDescription}
+        </p>
+        <div className="flex flex-wrap items-center gap-1 ">
+          {project.techTags.slice(0, 5).map((tag) => (
             <Badge
               variant="outline"
-              className="border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 transition-colors duration-150 hover:border-red-500/50 hover:bg-gray-900 hover:text-gray-100"
+              className="border-gray-700 bg-gray-900 px-2 py-2 text-gray-100 transition-colors duration-150 hover:border-red-500/50 hover:bg-gray-900 text-sm hover:text-gray-100"
               key={tag}
             >
               {tag}
             </Badge>
           ))}
-        </div>
-        <div className="mt-auto flex gap-4 border-t border-gray-900 pt-2">
-          {project.liveDemoUrl && (
-            <StyledLink
-              className="flex-1 sm:max-w-48"
-              href={project.liveDemoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Live Demo
-            </StyledLink>
-          )}
-          {project.githubUrl && (
-            <StyledLink
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="secondary"
-              className="flex-1 sm:max-w-48"
-            >
-              GitHub
-            </StyledLink>
+          {project.techTags.length > 5 && (
+            <Badge variant="secondary" className="px-2 py-2">
+              +{project.techTags.length - 5} more
+            </Badge>
           )}
         </div>
-      </div>
-    </div>
+      </CardContent>
+      <CardFooter className="mt-auto gap-2 border-t border-gray-900">
+        {project.liveDemoUrl && (
+          <StyledLink
+            className="min-h-10! min-w-0 flex-1 rounded-lg! px-3! py-2! text-sm sm:max-w-48"
+            href={project.liveDemoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Demo
+          </StyledLink>
+        )}
+        <StyledLink
+          className="min-h-10! min-w-0 flex-1 rounded-lg! px-3! py-2! text-sm sm:max-w-48"
+          href={`/projects/${project.slug}`}
+          variant="secondary"
+        >
+          Details
+        </StyledLink>
+      </CardFooter>
+    </Card>
   );
 }
 

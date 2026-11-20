@@ -20,7 +20,7 @@ function Projects() {
           A selection of projects focused on practical interfaces, responsive
           layouts, and clean frontend architecture.
         </p>
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="grid gap-2 grid-cols-[repeat(auto-fit,minmax(min(100%,20rem),1fr))]">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

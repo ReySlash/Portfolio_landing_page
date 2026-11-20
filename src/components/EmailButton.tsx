@@ -52,7 +52,7 @@ function EmailButton() {
       }}
       variant="outline"
       size="lg"
-      className="w-full min-h-12 rounded-xl border-gray-700 bg-gray-900 px-5 py-3 font-semibold text-white transition-transform duration-150 hover:scale-[1.02] hover:border-gray-500 hover:bg-gray-800 hover:text-white active:scale-[0.98]"
+      className="w-full min-h-12 rounded-xl !border-gray-500 !bg-gray-700 px-5 py-3 font-semibold !text-white shadow-sm shadow-black/30 transition-transform duration-150 hover:scale-[1.02] hover:!border-gray-400 hover:!bg-gray-600 hover:!text-white active:scale-[0.98]"
       aria-label={
         copied
           ? "Email copied to clipboard"

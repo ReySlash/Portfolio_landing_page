@@ -25,7 +25,7 @@ function StyledLink({
     "min-h-12 rounded-xl px-5 py-3 font-semibold transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98]",
     variant === "primary"
       ? "bg-red-600 text-white hover:bg-red-500"
-      : "border-gray-700 bg-gray-900 text-white hover:border-gray-500 hover:bg-gray-800",
+      : "!border-gray-700 !bg-gray-900 !text-white shadow-sm shadow-black/30 hover:!border-gray-600 hover:!bg-gray-800",
     className,
   );
 

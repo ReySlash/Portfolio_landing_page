@@ -7,9 +7,17 @@ import TasteBoardThumbnail from "./thumbnails/TasteBoardThumbnail.webp";
 const projects: Project[] = [
   {
     id: 4,
+    slug: "kinetiq",
     name: "KinetiQ",
+    shortDescription:
+      "Fitness platform for building routines, tracking workouts, and understanding progress.",
     description:
       "A full-stack fitness platform for modeling exercises, building reusable training routines and programs, tracking workout performance, and understanding progress through explainable analytics. The platform uses a Next.js frontend on Vercel, a Dockerized NestJS API on an Oracle Cloud VPS, and Neon PostgreSQL.",
+    highlights: [
+      "Exercise and routine modeling",
+      "Workout performance tracking",
+      "Explainable progress analytics",
+    ],
     techTags: [
       "Next.js",
       "TypeScript",
@@ -37,9 +45,17 @@ const projects: Project[] = [
   },
   {
     id: 1,
+    slug: "job-applications-tracker",
     name: "Job Applications Tracker",
+    shortDescription:
+      "Full-stack job application manager with secure workspaces, advanced filtering, and analytics.",
     description:
       "A production-ready full-stack application for managing and analyzing job applications. Features secure JWT authentication, advanced filtering, sorting, search, form validation, private demo workspaces, and a lightweight analytics dashboard. The frontend is deployed on Vercel, while the backend runs on an Oracle Cloud VPS using Docker, Nginx, Let's Encrypt, and Neon PostgreSQL.",
+    highlights: [
+      "Private demo workspaces",
+      "Advanced search, filtering, and sorting",
+      "Application analytics dashboard",
+    ],
     techTags: [
       "TypeScript",
       "React",
@@ -66,9 +82,17 @@ const projects: Project[] = [
   },
   {
     id: 2,
+    slug: "digital-clip-agency",
     name: "Digital Clip Agency Portfolio",
+    shortDescription:
+      "Full-stack portfolio platform for a video editing agency with gallery and admin content management.",
     description:
       "A modern full-stack portfolio platform for a Professional Video Editing Agency built with Next.js and TypeScript. Features a dynamic project gallery, admin content management, responsive UI, and scalable architecture focused on performance, clean presentation, and easy client showcase management.",
+    highlights: [
+      "Dynamic project gallery",
+      "Admin content management",
+      "Responsive client showcase",
+    ],
     techTags: [
       "Next.js",
       "TypeScript",
@@ -89,9 +113,17 @@ const projects: Project[] = [
   },
   {
     id: 3,
+    slug: "tasteboard",
     name: "TasteBoard",
+    shortDescription:
+      "Recipe discovery app for meals and cocktails with search, filters, and local favorites.",
     description:
       "A modern recipe discovery app for browsing meals and cocktails, viewing detailed recipe pages, and saving favorites locally in the browser. Built with Next.js App Router and TypeScript, it includes category filtering, search, responsive mobile navigation, a slide-out filter drawer, dynamic SEO metadata, custom not-found handling, and automated tests for key UI and helper behavior.",
+    highlights: [
+      "Recipe and cocktail discovery",
+      "Local favorites",
+      "Dynamic SEO and not-found handling",
+    ],
     techTags: [
       "Next.js",
       "TypeScript",
