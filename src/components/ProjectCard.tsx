@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Project } from "../types/projectType";
 import StyledLink from "./StyledLink";
+import { Badge } from "./ui/badge";
 
 type Props = {
   project: Project;
@@ -22,12 +23,13 @@ function ProjectCard({ project }: Props) {
         </div>
         <div className="flex flex-wrap items-center gap-1 py-1 text-sm">
           {project.techTags.map((tag) => (
-            <span
-              className="rounded-full border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 transition-colors duration-150 hover:border-red-500/50"
+            <Badge
+              variant="outline"
+              className="border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 transition-colors duration-150 hover:border-red-500/50 hover:bg-gray-900 hover:text-gray-100"
               key={tag}
             >
               {tag}
-            </span>
+            </Badge>
           ))}
         </div>
         <div className="mt-auto flex gap-4 border-t border-gray-900 pt-2">

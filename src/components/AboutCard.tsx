@@ -3,6 +3,7 @@ import portrait from "../assets/AboutPortrait.webp";
 import githubIcon from "../assets/github.svg";
 import linkedinIcon from "../assets/linkedin.svg";
 import StyledLink from "./StyledLink";
+import { Badge } from "./ui/badge";
 import {
   Tooltip,
   TooltipContent,
@@ -19,9 +20,9 @@ function AboutCard() {
   return (
     <div className="overflow-hidden rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] h-full flex flex-col justify-between gap-3">
       <div className="mb-3 flex items-start justify-between">
-        <span className="inline-flex rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
+        <Badge className="border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 hover:bg-emerald-500/10">
           Open to opportunities
-        </span>
+        </Badge>
       </div>
 
       <div className="flex flex-col items-center text-center gap-1">

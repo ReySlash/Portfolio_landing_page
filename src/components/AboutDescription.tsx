@@ -1,3 +1,5 @@
+import { Badge } from "./ui/badge";
+
 function AboutDescription() {
   const coreSkills = [
     "HTML",
@@ -46,11 +48,13 @@ function AboutDescription() {
           <div className="flex flex-col h-full justify-center">
             <ul className="flex flex-wrap gap-3 items-center text-sm font-medium">
               {coreSkills.map((skill) => (
-                <li
-                  className="rounded-full border py-3 border-gray-700 bg-gray-900 px-3 transition-colors duration-150 hover:border-red-500/50"
-                  key={skill}
-                >
-                  {skill}
+                <li key={skill}>
+                  <Badge
+                    variant="outline"
+                    className="border-gray-700 bg-gray-900 px-3 py-3 text-sm text-gray-100 transition-colors duration-150 hover:border-red-500/50 hover:bg-gray-900 hover:text-gray-100"
+                  >
+                    {skill}
+                  </Badge>
                 </li>
               ))}
             </ul>
