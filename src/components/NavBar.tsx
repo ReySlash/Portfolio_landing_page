@@ -1,22 +1,28 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { cn } from "cn";
 import logo from "../assets/logoMark.png";
+import { Button } from "./ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "./ui/drawer";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "./ui/navigation-menu";
 
 const navLinks = ["home", "projects", "about", "contact"];
-
-function focusWithoutScroll(element: HTMLElement | null) {
-  if (!element) {
-    return;
-  }
-
-  try {
-    element.focus({ preventScroll: true });
-  } catch {
-    element.focus();
-  }
-}
 
 function MenuIcon() {
   return (
@@ -53,8 +59,6 @@ function CloseIcon() {
 function NavBar() {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
-  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     const sections = navLinks
@@ -140,25 +144,6 @@ function NavBar() {
     };
   }, []);
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-    window.requestAnimationFrame(() => {
-      focusWithoutScroll(menuButtonRef.current);
-    });
-  };
-
-  const handleLinkClick = () => {
-    closeMenu();
-  };
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      window.requestAnimationFrame(() => {
-        focusWithoutScroll(closeButtonRef.current);
-      });
-    }
-  }, [isMenuOpen]);
-
   return (
     <>
       <header
@@ -170,96 +155,89 @@ function NavBar() {
             <Image className="w-8" src={logo} alt="Logo" priority />
           </a>
           <nav className="absolute left-1/2 hidden -translate-x-1/2 md:block">
-            <ul className="flex flex-row items-center gap-6 uppercase lg:gap-12">
+            <NavigationMenu className="max-w-none flex-none">
+              <NavigationMenuList className="gap-4 lg:gap-8">
               {navLinks.map((link) => (
-                <li key={link}>
-                  <a
-                    className={
-                      activeSection === link
-                        ? "text-red-500"
-                        : "transition-colors duration-300 hover:text-red-500"
-                    }
-                    href={`#${link}`}
-                    onClick={handleLinkClick}
+                <NavigationMenuItem key={link}>
+                  <NavigationMenuLink
+                    active={activeSection === link}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      "h-auto rounded-none border-b-2 border-transparent bg-transparent px-2 py-2 font-normal uppercase text-white hover:bg-transparent hover:text-red-500 focus:bg-transparent focus:text-red-500",
+                      activeSection === link && "border-red-500 text-red-500",
+                    )}
+                    asChild
                   >
-                    {link}
-                  </a>
-                </li>
+                    <a href={`#${link}`}>{link}</a>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
               ))}
-            </ul>
+              </NavigationMenuList>
+            </NavigationMenu>
           </nav>
 
-          {isMenuOpen ? (
-            <div className="h-12 w-12 md:hidden" aria-hidden="true" />
-          ) : (
-            <button
-              ref={menuButtonRef}
-              type="button"
-              className="flex max-w-20 items-center justify-center rounded-full bg-gray-900 p-3 transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700 md:hidden"
-              aria-label="Open navigation menu"
-              aria-expanded={false}
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <MenuIcon />
-            </button>
-          )}
+          <Drawer
+            direction="right"
+            open={isMenuOpen}
+            onOpenChange={setIsMenuOpen}
+          >
+            <DrawerTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full bg-gray-900 hover:bg-gray-700 md:hidden"
+                aria-label="Open navigation menu"
+              >
+                <MenuIcon />
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent className="border-gray-800 bg-black text-white">
+              <DrawerHeader className="flex-row items-center justify-between border-b border-gray-800">
+                <Image className="w-20" src={logo} alt="Logo" priority />
+                <DrawerTitle className="sr-only">Navigation menu</DrawerTitle>
+                <DrawerClose asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full bg-gray-900 hover:bg-gray-700"
+                    aria-label="Close navigation menu"
+                  >
+                    <CloseIcon />
+                  </Button>
+                </DrawerClose>
+              </DrawerHeader>
+
+              <nav className="flex-1 px-6 py-8">
+                <ul className="flex flex-col gap-6 text-lg uppercase">
+                  {navLinks.map((link) => (
+                    <li key={link}>
+                      <a
+                        className={
+                          activeSection === link
+                            ? "block text-red-500"
+                            : "block transition-colors duration-300 hover:text-red-500"
+                        }
+                        href={`#${link}`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <DrawerFooter className="border-t border-gray-800">
+                <DrawerClose asChild>
+                  <Button variant="outline" className="w-full">
+                    Close menu
+                  </Button>
+                </DrawerClose>
+              </DrawerFooter>
+            </DrawerContent>
+          </Drawer>
         </div>
       </header>
-
-      <div
-        className={`fixed inset-0 z-60 overflow-hidden md:hidden ${
-          isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
-        }`}
-        aria-hidden={!isMenuOpen}
-      >
-        <div
-          className={`absolute inset-0 bg-black/45 transition-opacity duration-300 ${
-            isMenuOpen ? "opacity-100" : "opacity-0"
-          }`}
-          onClick={closeMenu}
-        />
-
-        <aside
-          className={`absolute top-0 right-0 flex h-dvh w-72 max-w-[82vw] transform-gpu flex-col bg-black px-6 py-6 shadow-2xl transition-transform duration-300 ease-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-          aria-hidden={!isMenuOpen}
-          inert={!isMenuOpen}
-        >
-          <div className="mb-10 flex items-center justify-between">
-            <Image className="w-20" src={logo} alt="Logo" priority />
-            <button
-              ref={closeButtonRef}
-              type="button"
-              className="flex items-center justify-center rounded-full bg-gray-900 p-3 transition-colors duration-300 hover:cursor-pointer hover:bg-gray-700"
-              aria-label="Close navigation menu"
-              onClick={closeMenu}
-            >
-              <CloseIcon />
-            </button>
-          </div>
-
-          <nav className="flex-1">
-            <ul className="flex flex-col gap-6 text-lg uppercase">
-              {navLinks.map((link) => (
-                <li key={link}>
-                  <a
-                    className={
-                      activeSection === link
-                        ? "block text-red-500"
-                        : "block transition-colors duration-300 hover:text-red-500"
-                    }
-                    href={`#${link}`}
-                    onClick={handleLinkClick}
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </aside>
-      </div>
     </>
   );
 }

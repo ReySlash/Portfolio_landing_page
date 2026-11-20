@@ -4,7 +4,11 @@ import StyledLink from "./StyledLink";
 
 function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="scroll-mt-24">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="scroll-mt-24"
+    >
       <div className="flex w-full flex-col gap-5">
         <Reveal className="max-w-3xl space-y-4 text-left">
           <h2
@@ -21,7 +25,7 @@ function Contact() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-center gap-3 md:flex-row md:flex-wrap">
             <div className="col-span-1 md:col-span-2 flex flex-col gap-5 justify-center items-start">
-              <p className="text-4xl font-bold tracking-tight text-white lg:text-5xl">
+              <p className="text-2xl font-bold tracking-tight text-white lg:text-3xl">
                 Let's build something clear, modern, and useful.
               </p>
               <div className="text-center md:text-left w-full">

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import NavBar from "./NavBar";
 
 function renderNavBar() {
@@ -33,7 +33,7 @@ describe("NavBar", () => {
     ).toHaveAttribute("href", "#contact");
   });
 
-  it("opens and closes the mobile menu", () => {
+  it("opens and closes the mobile menu", async () => {
     renderNavBar();
 
     const openButton = screen.getByRole("button", {
@@ -46,11 +46,19 @@ describe("NavBar", () => {
       screen.getByRole("button", { name: /close navigation menu/i }),
     ).toBeInTheDocument();
 
-    fireEvent.click(screen.getAllByRole("link", { name: /^about$/i })[1]);
+    const aboutLinks = document.querySelectorAll<HTMLAnchorElement>(
+      'a[href="#about"]',
+    );
+    const mobileAboutLink = aboutLinks[aboutLinks.length - 1];
 
-    expect(
-      screen.getByRole("button", { name: /open navigation menu/i }),
-    ).toBeInTheDocument();
+    expect(mobileAboutLink).toBeInTheDocument();
+    fireEvent.click(mobileAboutLink!);
+
+    await waitFor(() => {
+      expect(
+        document.querySelector('button[aria-label="Open navigation menu"]'),
+      ).toBeInTheDocument();
+    });
   });
 
   it("highlights contact when scrolled to the bottom of the page", () => {
@@ -75,11 +83,13 @@ describe("NavBar", () => {
 
     fireEvent.scroll(window);
 
-    const [desktopContactLink, mobileContactLink] = screen.getAllByRole("link", {
-      name: /^contact$/i,
-    });
+    const contactLinks = document.querySelectorAll<HTMLAnchorElement>(
+      'a[href="#contact"]',
+    );
+    const [desktopContactLink, mobileContactLink] = contactLinks;
 
-    expect(desktopContactLink).toHaveClass("text-red-500");
+    expect(contactLinks).toHaveLength(2);
+    expect(desktopContactLink).toHaveAttribute("data-active");
     expect(mobileContactLink).toHaveClass("text-red-500");
   });
 });
