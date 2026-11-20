@@ -11,12 +11,14 @@ type Props = {
 function ProjectCard({ project }: Props) {
   return (
     <Card className="flex flex-col py-1 gap-1 overflow-hidden rounded-2xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]">
-      <Image
-        className="aspect-[2.4/1] w-full border-b border-gray-900 object-cover"
-        src={project.thumbnail}
-        alt={project.name}
-        sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
-      />
+      <div className="group aspect-[2.4/1] overflow-hidden border-b border-gray-900">
+        <Image
+          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+          src={project.thumbnail}
+          alt={project.name}
+          sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
+        />
+      </div>
       <CardHeader className="gap-0 ">
         <h3 className="text-lg font-bold tracking-tight">{project.name}</h3>
       </CardHeader>
@@ -28,7 +30,7 @@ function ProjectCard({ project }: Props) {
           {project.techTags.slice(0, 5).map((tag) => (
             <Badge
               variant="outline"
-              className="border-gray-700 bg-gray-900 px-2 py-2 text-gray-100 transition-colors duration-150 hover:border-red-500/50 hover:bg-gray-900 text-sm hover:text-gray-100"
+              className="border-gray-700 bg-gray-900 px-2 py-2 text-sm text-gray-100"
               key={tag}
             >
               {tag}
