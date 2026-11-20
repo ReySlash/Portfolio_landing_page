@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Project } from "../types/projectType";
+import StyledLink from "./StyledLink";
 
 type Props = {
   project: Project;
@@ -31,24 +32,25 @@ function ProjectCard({ project }: Props) {
         </div>
         <div className="mt-auto flex gap-4 border-t border-gray-900 pt-2">
           {project.liveDemoUrl && (
-            <a
-              className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-red-600 px-5 py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:max-w-48"
+            <StyledLink
+              className="flex-1 sm:max-w-48"
               href={project.liveDemoUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
               Live Demo
-            </a>
+            </StyledLink>
           )}
           {project.githubUrl && (
-            <a
+            <StyledLink
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-gray-800 px-5 py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-gray-700 active:scale-[0.98] sm:max-w-48"
+              variant="secondary"
+              className="flex-1 sm:max-w-48"
             >
               GitHub
-            </a>
+            </StyledLink>
           )}
         </div>
       </div>

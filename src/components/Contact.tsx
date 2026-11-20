@@ -1,5 +1,6 @@
 import Reveal from "./Reveal";
 import EmailButton from "./EmailButton";
+import StyledLink from "./StyledLink";
 
 function Contact() {
   return (
@@ -33,22 +34,23 @@ function Contact() {
               </div>
             </div>
             <div className="col-span-1 grid grid-cols-1 gap-3 xl:px-5 items-center justify-between md:justify-center">
-              <a
+              <StyledLink
                 href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-1 items-center justify-center text-center rounded-xl bg-red-600 px-auto py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
+                className="w-full"
               >
                 Connect on LinkedIn
-              </a>
-              <a
+              </StyledLink>
+              <StyledLink
                 href="https://github.com/ReySlash"
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+                variant="secondary"
+                className="w-full"
               >
                 Visit GitHub
-              </a>
+              </StyledLink>
               <EmailButton />
             </div>
           </div>

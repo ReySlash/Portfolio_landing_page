@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroPortrait from "../assets/HeroPortrait.webp";
+import StyledLink from "./StyledLink";
 
 function Hero() {
   return (
@@ -19,18 +20,19 @@ function Hero() {
             clean component architecture.
           </p>
           <div className="flex flex-row justify-center gap-3 py-5">
-            <a
+            <StyledLink
               href="#projects"
-              className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-red-600 px-2 md:px-5 py-3 font-semibold transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:max-w-48"
+              className="flex-1 px-2 md:px-5 sm:max-w-48"
             >
               View Projects
-            </a>
-            <a
+            </StyledLink>
+            <StyledLink
               href="#contact"
-              className="flex min-h-12 flex-1 items-center justify-center rounded-xl border border-gray-700 bg-gray-900 px-2 md:px-5 py-3 font-semibold transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98] sm:max-w-48"
+              variant="secondary"
+              className="flex-1 px-2 md:px-5 sm:max-w-48"
             >
               Contact Me
-            </a>
+            </StyledLink>
           </div>
         </div>
 
