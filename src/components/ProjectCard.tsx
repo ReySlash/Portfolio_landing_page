@@ -27,18 +27,18 @@ function ProjectCard({ project }: Props) {
           {project.shortDescription}
         </p>
         <div className="flex flex-wrap items-center gap-1 ">
-          {project.techTags.slice(0, 5).map((tag) => (
+          {project.technologies.slice(0, 5).map((technology) => (
             <Badge
               variant="outline"
               className="border-gray-700 bg-gray-900 px-2 py-2 text-sm text-gray-100"
-              key={tag}
+              key={technology.name}
             >
-              {tag}
+              {technology.name}
             </Badge>
           ))}
-          {project.techTags.length > 5 && (
+          {project.technologies.length > 5 && (
             <Badge variant="secondary" className="px-2 py-2">
-              +{project.techTags.length - 5} more
+              +{project.technologies.length - 5} more
             </Badge>
           )}
         </div>

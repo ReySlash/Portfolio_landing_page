@@ -3,6 +3,7 @@ import KinetiQThumbnail from "./thumbnails/KinetiQThumbnail.webp";
 import JatThumbnail from "./thumbnails/JATPicture.jpg";
 import DigitalClipAgencyThumbnail from "./thumbnails/DCAPicture.webp";
 import TasteBoardThumbnail from "./thumbnails/TasteBoardThumbnail.webp";
+import { createTechnologies } from "./technologyIcons";
 
 const projects: Project[] = [
   {
@@ -13,12 +14,16 @@ const projects: Project[] = [
       "Fitness platform for building routines, tracking workouts, and understanding progress.",
     description:
       "A full-stack fitness platform for modeling exercises, building reusable training routines and programs, tracking workout performance, and understanding progress through explainable analytics. The platform uses a Next.js frontend on Vercel, a Dockerized NestJS API on an Oracle Cloud VPS, and Neon PostgreSQL.",
+    problem:
+      "Fitness planning is often fragmented across notes, spreadsheets, and generic trackers that do not explain why performance changes over time.",
+    solution:
+      "KinetiQ centralizes exercise modeling, reusable routines, workout tracking, and explainable progress analytics in one full-stack platform.",
     highlights: [
       "Exercise and routine modeling",
       "Workout performance tracking",
       "Explainable progress analytics",
     ],
-    techTags: [
+    technologies: createTechnologies([
       "Next.js",
       "TypeScript",
       "React",
@@ -38,6 +43,9 @@ const projects: Project[] = [
       "Oracle Cloud",
       "Neon",
       "Vercel",
+    ]),
+    screenshots: [
+      { src: KinetiQThumbnail, alt: "KinetiQ application dashboard preview" },
     ],
     liveDemoUrl: "https://kinetiq.reyslash.com/",
     githubUrl: "https://github.com/ReySlash/KinetiQ",
@@ -51,12 +59,16 @@ const projects: Project[] = [
       "Full-stack job application manager with secure workspaces, advanced filtering, and analytics.",
     description:
       "A production-ready full-stack application for managing and analyzing job applications. Features secure JWT authentication, advanced filtering, sorting, search, form validation, private demo workspaces, and a lightweight analytics dashboard. The frontend is deployed on Vercel, while the backend runs on an Oracle Cloud VPS using Docker, Nginx, Let's Encrypt, and Neon PostgreSQL.",
+    problem:
+      "Job seekers need a reliable way to organize applications, follow-ups, and outcomes without losing context across multiple tools and spreadsheets.",
+    solution:
+      "The tracker provides secure workspaces, structured application data, advanced discovery tools, and lightweight analytics to make the search process easier to manage.",
     highlights: [
       "Private demo workspaces",
       "Advanced search, filtering, and sorting",
       "Application analytics dashboard",
     ],
-    techTags: [
+    technologies: createTechnologies([
       "TypeScript",
       "React",
       "Vite",
@@ -75,6 +87,12 @@ const projects: Project[] = [
       "Cloudflare",
       "Let's Encrypt",
       "Vercel",
+    ]),
+    screenshots: [
+      {
+        src: JatThumbnail,
+        alt: "Job Applications Tracker dashboard preview",
+      },
     ],
     liveDemoUrl: "https://job-application-tracker-swart-sigma.vercel.app/",
     githubUrl: "https://github.com/ReySlash/job-application-tracker",
@@ -88,12 +106,16 @@ const projects: Project[] = [
       "Full-stack portfolio platform for a video editing agency with gallery and admin content management.",
     description:
       "A modern full-stack portfolio platform for a Professional Video Editing Agency built with Next.js and TypeScript. Features a dynamic project gallery, admin content management, responsive UI, and scalable architecture focused on performance, clean presentation, and easy client showcase management.",
+    problem:
+      "A video editing agency needs a polished, maintainable way to showcase work and update its portfolio without relying on developer changes for every content update.",
+    solution:
+      "The platform combines a dynamic project gallery with content management and responsive presentation tools so the agency can keep its showcase current and client-ready.",
     highlights: [
       "Dynamic project gallery",
       "Admin content management",
       "Responsive client showcase",
     ],
-    techTags: [
+    technologies: createTechnologies([
       "Next.js",
       "TypeScript",
       "React",
@@ -106,6 +128,12 @@ const projects: Project[] = [
       "Testing Library",
       "Vercel",
       "Neon",
+    ]),
+    screenshots: [
+      {
+        src: DigitalClipAgencyThumbnail,
+        alt: "Digital Clip Agency portfolio preview",
+      },
     ],
     liveDemoUrl: "https://digital-clip-agency-landing.vercel.app/",
     githubUrl: "https://github.com/ReySlash/Digital_Clip_Agency_landing",
@@ -119,12 +147,16 @@ const projects: Project[] = [
       "Recipe discovery app for meals and cocktails with search, filters, and local favorites.",
     description:
       "A modern recipe discovery app for browsing meals and cocktails, viewing detailed recipe pages, and saving favorites locally in the browser. Built with Next.js App Router and TypeScript, it includes category filtering, search, responsive mobile navigation, a slide-out filter drawer, dynamic SEO metadata, custom not-found handling, and automated tests for key UI and helper behavior.",
+    problem:
+      "Recipe discovery can become difficult when users need to browse different meal types, search quickly, and keep favorite recipes accessible across sessions.",
+    solution:
+      "TasteBoard brings recipes and cocktails together with search, category filters, responsive navigation, detailed pages, and browser-based favorites.",
     highlights: [
       "Recipe and cocktail discovery",
       "Local favorites",
       "Dynamic SEO and not-found handling",
     ],
-    techTags: [
+    technologies: createTechnologies([
       "Next.js",
       "TypeScript",
       "React",
@@ -136,6 +168,9 @@ const projects: Project[] = [
       "Testing Library",
       "jsdom",
       "Vercel",
+    ]),
+    screenshots: [
+      { src: TasteBoardThumbnail, alt: "TasteBoard recipe discovery preview" },
     ],
     liveDemoUrl: "https://taste-board-zeta.vercel.app/",
     githubUrl: "https://github.com/ReySlash/taste-board",

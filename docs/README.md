@@ -5,6 +5,7 @@ This directory contains the approved specifications for the next portfolio upgra
 ## Specifications
 
 - [Project grid and detail pages](./project-grid-and-details-spec.md)
+- [Project detail page experience](./project-detail-page-spec.md)
 - [Branching and Vercel Preview workflow](./branching-and-vercel-preview-workflow.md)
 
 ## Repository workflow

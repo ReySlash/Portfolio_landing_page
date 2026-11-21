@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import projects from "@/data/projects";
 import StyledLink from "@/components/StyledLink";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import ProjectScreenshotCarousel from "@/components/ProjectScreenshotCarousel";
+import TechnologyBadge from "@/components/TechnologyBadge";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -34,6 +35,11 @@ export async function generateMetadata({
     alternates: {
       canonical: `/projects/${project.slug}`,
     },
+    openGraph: {
+      title: `${project.name} | ReySlash Portfolio`,
+      description: project.description,
+      images: [project.thumbnail.src],
+    },
   };
 }
 
@@ -46,33 +52,57 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className="container mx-auto flex min-h-screen max-w-5xl flex-col gap-8 px-4 py-24 sm:px-6">
-      <StyledLink href="/#projects" variant="secondary" className="w-fit">
+    <main className="container mx-auto flex min-h-screen max-w-5xl flex-col gap-4 px-4 py-12 sm:px-6">
+      <Link
+        href="/#projects"
+        className="group inline-flex w-fit items-center gap-2 text-sm font-semibold text-gray-400 transition-colors hover:text-red-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+      >
+        <span
+          aria-hidden="true"
+          className="transition-transform duration-150 group-hover:-translate-x-1"
+        >
+          ←
+        </span>
         Back to Projects
-      </StyledLink>
+      </Link>
 
-      <article className="flex flex-col gap-8">
-        <header className="space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-400">
+      <article className="flex flex-col gap-3">
+        <header className="w-full space-y-3">
+          <p className="w-fit rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-red-400">
             Project details
           </p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             {project.name}
           </h1>
           <p className="max-w-3xl text-lg leading-8 text-gray-300">
-            {project.description}
+            {project.shortDescription}
           </p>
         </header>
 
-        <Image
-          className="aspect-10/5 w-full rounded-3xl border border-gray-800 object-cover"
-          src={project.thumbnail}
-          alt={project.name}
-          priority
-          sizes="(min-width: 1024px) 64rem, 100vw"
+        <ProjectScreenshotCarousel
+          projectName={project.name}
+          screenshots={project.screenshots}
         />
 
-        <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+        <div className="grid gap-3 lg:grid-cols-[1fr_1.2fr]">
+          <Card className="flex flex-col gap-2 rounded-3xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900">
+            <CardHeader>
+              <h2 className="text-2xl font-semibold">The problem</h2>
+            </CardHeader>
+            <CardContent>
+              <p className="leading-7 text-gray-300">{project.problem}</p>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-3xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900">
+            <CardHeader>
+              <h2 className="text-2xl font-semibold">The solution</h2>
+            </CardHeader>
+            <CardContent>
+              <p className="leading-7 text-gray-300">{project.solution}</p>
+            </CardContent>
+          </Card>
+
           <Card className="rounded-3xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900">
             <CardHeader>
               <h2 className="text-2xl font-semibold">Key capabilities</h2>
@@ -94,18 +124,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <h2 className="text-2xl font-semibold">Technology stack</h2>
             </CardHeader>
             <CardContent className="flex flex-wrap gap-2">
-              {project.techTags.map((tag) => (
-                <Badge key={tag} variant="outline">
-                  {tag}
-                </Badge>
+              {project.technologies.map((technology) => (
+                <TechnologyBadge
+                  key={technology.name}
+                  technology={technology}
+                />
               ))}
             </CardContent>
           </Card>
         </div>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex w-full flex-wrap justify-end gap-3">
           {project.liveDemoUrl && (
             <StyledLink
+              className="w-full sm:w-48"
               href={project.liveDemoUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -115,6 +147,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
           {project.githubUrl && (
             <StyledLink
+              className="w-full sm:w-48"
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"

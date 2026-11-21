@@ -1,5 +1,7 @@
 # Project Grid and Detail Pages Specification
 
+> The expanded detail-page content, carousel behavior, technology-logo strategy, and accessibility requirements are maintained in [Project Detail Page Experience](./project-detail-page-spec.md).
+
 ## Status
 
 Approved specification. This document describes the planned implementation; it does not itself change application behavior.
