@@ -137,10 +137,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </Card>
         </div>
 
-        <div className="flex w-full flex-wrap justify-end gap-3">
+        <div className="flex w-full justify-end gap-3">
           {project.liveDemoUrl && (
             <StyledLink
-              className="w-full sm:w-48"
+              className="min-w-0 flex-1 sm:w-48 sm:flex-none"
               href={project.liveDemoUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -150,7 +150,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
           {project.githubUrl && (
             <StyledLink
-              className="w-full sm:w-48"
+              className="min-w-0 flex-1 sm:w-48 sm:flex-none"
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"

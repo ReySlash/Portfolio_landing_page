@@ -81,9 +81,9 @@ function ProjectScreenshotCarousel({
         {screenshots.map((screenshot) => (
           <CarouselItem key={screenshot.alt}>
             <figure>
-              <div className="flex min-h-64 max-h-[72vh] items-center justify-center px-8 sm:px-12">
+              <div className="flex h-[clamp(20rem,70vh,42rem)] items-center justify-center px-8 sm:px-12">
                 <Image
-                  className="h-auto max-h-[72vh] max-w-full rounded-2xl object-contain"
+                  className="h-auto max-h-full max-w-full rounded-2xl object-contain"
                   width={screenshot.src.width}
                   height={screenshot.src.height}
                   sizes="(min-width: 1024px) 56rem, 100vw"
