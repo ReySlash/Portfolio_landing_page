@@ -2,7 +2,7 @@
 
 ## Status
 
-Implemented with project-specific local screenshots from `src/data/thumbnails/`.
+Implemented baseline with project-specific local screenshots from `src/data/thumbnails/`.
 
 ## Purpose
 
@@ -14,13 +14,12 @@ Every `/projects/[slug]` page contains, in this order:
 
 1. Back navigation to `/#projects`.
 2. Project title and short description.
-3. Full project overview.
-4. Screenshot carousel.
-5. Problem statement.
-6. Solution explanation.
-7. Key capability highlights.
-8. Full technology stack with logos and names.
-9. CTA row with Live Demo first and GitHub second.
+3. Screenshot carousel.
+4. Problem statement.
+5. Solution explanation.
+6. Key capability highlights.
+7. Full technology stack with logos and names.
+8. CTA row with Live Demo first and GitHub second.
 
 The page does not render a redundant Details action because the visitor is already on the detail page.
 
@@ -48,7 +47,9 @@ Each project also provides:
 - `screenshots`: local screenshot assets with descriptive alternative text.
 - `technologies`: the complete technology list.
 
-Each project uses three to five representative screenshots from its local asset folder. The project thumbnail is also shown as the first carousel slide and remains the card image.
+Each project has a project-specific screenshot selection in its local asset folder. The project thumbnail is prepended as the first carousel slide and remains the card image. The current selections produce three to six total carousel slides depending on the project.
+
+The full `description` remains the canonical project overview copy for metadata and future overview presentation. The current page uses `shortDescription` in the hero and renders the problem and solution content separately.
 
 ## Screenshot carousel
 
@@ -81,7 +82,7 @@ Technology badges use shadcn `Badge` and a centralized Simple Icons registry. Ea
 
 ## Metadata and routing
 
-The dynamic route generates static params from project data, returns `notFound()` for unknown slugs, and generates route-specific title, description, canonical URL, and Open Graph image metadata.
+The dynamic route generates static params from project data, returns `notFound()` for unknown slugs, and generates route-specific title, description, canonical URL, and Open Graph image metadata. Root-level Twitter metadata is currently inherited and is a follow-up hardening task for project-specific social sharing.
 
 Every project detail URL is included in the sitemap.
 

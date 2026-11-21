@@ -2,7 +2,7 @@
 
 ## Status
 
-Approved workflow specification. This document describes the intended Git and Vercel process; it does not create branches or change Vercel settings.
+Partially configured workflow. The `test` branch exists remotely and has been used for Preview validation. Vercel is connected to the repository and Preview deployments are available, but dedicated automatic behavior for the `test` branch must be verified in the Vercel dashboard.
 
 ## Branch roles
 
@@ -70,7 +70,7 @@ feature/* → test → main
 
 ## Initial branch setup
 
-The branch setup will be performed separately from this documentation change. The intended commands are:
+The current repository has `main` and `test` available. The documented `dev` baseline should be created if it does not already exist before starting the next feature cycle. The intended setup commands are:
 
 ```bash
 git fetch origin
@@ -101,17 +101,20 @@ The branch must have a clean working tree before it is reviewed.
 
 ## Vercel prerequisites
 
-Configure these settings in the Vercel project dashboard:
+Configure or verify these settings in the Vercel project dashboard:
 
 - Connect the GitHub repository.
 - Set `main` as the Production Branch.
 - Enable Preview deployments for non-production branches.
 - Confirm that pushes to `test` create Preview deployments automatically.
+- Confirm that the Preview deployment is associated with the `test` Git branch rather than only an ad-hoc CLI deployment.
 - Configure Preview environment variables separately from Production variables.
 - Confirm the Preview build uses the same install and build commands as the repository.
 - Verify the project root and output settings for the Next.js application.
 
 There is currently no `vercel.json` in the repository. Branch behavior and environment configuration must therefore be verified in the Vercel project settings unless a future decision introduces repository-managed Vercel configuration.
+
+The Vercel CLI can deploy the checked-out `test` state directly to a Preview, but it does not expose a setting for designating a special Preview branch. Automatic branch behavior remains dashboard-managed.
 
 ## Preview validation checklist
 

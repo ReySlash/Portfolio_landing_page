@@ -1,6 +1,6 @@
 # Portfolio Upgrade Documentation
 
-This directory contains the approved specifications for the next portfolio upgrade and its validation workflow.
+This directory contains the specifications and current implementation notes for the portfolio UI, project detail experience, and preview workflow.
 
 ## Specifications
 
@@ -11,8 +11,8 @@ This directory contains the approved specifications for the next portfolio upgra
 ## Repository workflow
 
 - `main`: production branch
-- `test`: Vercel Preview validation branch
-- `dev`: development baseline branch
+- `test`: Vercel Preview validation branch, created and pushed
+- `dev`: documented development baseline; create it before the next feature cycle if it does not exist remotely
 - Feature branches: short-lived branches created from `dev`
 
 Promotion flow:
@@ -21,4 +21,4 @@ Promotion flow:
 feature/* → test → main
 ```
 
-The application code, Git branches, and Vercel settings remain unchanged until the specifications are implemented and the preview workflow is configured.
+The project is connected to Vercel and Preview deployments are available. The Vercel CLI can create a Preview from `test`, but the dedicated automatic branch behavior must still be verified in Vercel project settings.
