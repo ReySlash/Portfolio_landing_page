@@ -1,15 +1,20 @@
 import {
+  siCss,
   siBetterauth,
   siCloudflare,
   siCoder,
   siDocker,
   siExpress,
+  siGit,
+  siHtml5,
+  siJavascript,
   siLetsencrypt,
   siNeon,
   siNestjs,
   siNextdotjs,
   siNginx,
   siPostgresql,
+  siPython,
   siPrisma,
   siReact,
   siReacthookform,
@@ -28,6 +33,11 @@ import type { TechnologyIconKey } from "../types/projectType";
 
 export const technologyIcons: Record<TechnologyIconKey, SimpleIcon> = {
   generic: siCoder,
+  html5: siHtml5,
+  css3: siCss,
+  javascript: siJavascript,
+  git: siGit,
+  python: siPython,
   nextjs: siNextdotjs,
   typescript: siTypescript,
   react: siReact,
@@ -58,6 +68,9 @@ export const technologyIcons: Record<TechnologyIconKey, SimpleIcon> = {
 };
 
 const technologyIconKeys: Record<string, TechnologyIconKey> = {
+  HTML: "html5",
+  CSS: "css3",
+  JavaScript: "javascript",
   "Next.js": "nextjs",
   TypeScript: "typescript",
   React: "react",
@@ -79,6 +92,8 @@ const technologyIconKeys: Record<string, TechnologyIconKey> = {
   Vite: "vite",
   "TanStack Query": "tanstack",
   "Express.js": "express",
+  Git: "git",
+  Python: "python",
   Cloudflare: "cloudflare",
   "Let's Encrypt": "letsencrypt",
   "Auth.js": "authjs",

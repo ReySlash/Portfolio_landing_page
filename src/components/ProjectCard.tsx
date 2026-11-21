@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Project } from "../types/projectType";
 import StyledLink from "./StyledLink";
+import TechnologyBadge from "./TechnologyBadge";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 
@@ -28,16 +29,17 @@ function ProjectCard({ project }: Props) {
         </p>
         <div className="flex flex-wrap items-center gap-1 ">
           {project.technologies.slice(0, 5).map((technology) => (
+            <TechnologyBadge
+              key={technology.name}
+              technology={technology}
+              className="px-2 py-2 text-sm"
+            />
+          ))}
+          {project.technologies.length > 5 && (
             <Badge
               variant="outline"
               className="border-gray-700 bg-gray-900 px-2 py-2 text-sm text-gray-100"
-              key={technology.name}
             >
-              {technology.name}
-            </Badge>
-          ))}
-          {project.technologies.length > 5 && (
-            <Badge variant="secondary" className="px-2 py-2">
               +{project.technologies.length - 5} more
             </Badge>
           )}
