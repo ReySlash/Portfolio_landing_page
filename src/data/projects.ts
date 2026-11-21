@@ -3,6 +3,19 @@ import KinetiQThumbnail from "./thumbnails/KinetiQThumbnail.webp";
 import JatThumbnail from "./thumbnails/JATPicture.jpg";
 import DigitalClipAgencyThumbnail from "./thumbnails/DCAPicture.webp";
 import TasteBoardThumbnail from "./thumbnails/TasteBoardThumbnail.webp";
+import KinetiQExercisesDesktop from "./thumbnails/KinetIQ/Exercises-desk.webp";
+import KinetiQExercisesMobile from "./thumbnails/KinetIQ/Exercises-mob.webp";
+import KinetiQExerciseDetailsMobile from "./thumbnails/KinetIQ/Exercise-details-mob-1.webp";
+import KinetiQAnalyticsMobile from "./thumbnails/KinetIQ/Analytics-mob-page-1.webp";
+import KinetiQAnalyticsDetailsMobile from "./thumbnails/KinetIQ/Analytics-mob-page-2.webp";
+import JobTrackerDashboard from "./thumbnails/Job-applications-tracker/Dashboard-dark-1.webp";
+import JobTrackerAnalytics from "./thumbnails/Job-applications-tracker/Dashboard-dark-2.webp";
+import JobTrackerApplications from "./thumbnails/Job-applications-tracker/Applications-dark.webp";
+import JobTrackerApplicationDetails from "./thumbnails/Job-applications-tracker/Application-details-light.webp";
+import DigitalClipContent from "./thumbnails/Digital-clip-agency-portfolio/Content-examples.webp";
+import DigitalClipAdmin from "./thumbnails/Digital-clip-agency-portfolio/Admin-panel-CMS.webp";
+import TasteBoardRecipes from "./thumbnails/Taste-board/Recipes-page-desk.webp";
+import TasteBoardRecipeDetails from "./thumbnails/Taste-board/Recipe-details-mob.webp";
 import { createTechnologies } from "./technologyIcons";
 
 const projects: Project[] = [
@@ -45,7 +58,26 @@ const projects: Project[] = [
       "Vercel",
     ]),
     screenshots: [
-      { src: KinetiQThumbnail, alt: "KinetiQ application dashboard preview" },
+      {
+        src: KinetiQExercisesDesktop,
+        alt: "KinetiQ exercises dashboard on desktop",
+      },
+      {
+        src: KinetiQExercisesMobile,
+        alt: "KinetiQ exercises dashboard on mobile",
+      },
+      {
+        src: KinetiQExerciseDetailsMobile,
+        alt: "KinetiQ exercise details screen on mobile",
+      },
+      {
+        src: KinetiQAnalyticsMobile,
+        alt: "KinetiQ analytics overview on mobile",
+      },
+      {
+        src: KinetiQAnalyticsDetailsMobile,
+        alt: "KinetiQ analytics details on mobile",
+      },
     ],
     liveDemoUrl: "https://kinetiq.reyslash.com/",
     githubUrl: "https://github.com/ReySlash/KinetiQ",
@@ -90,8 +122,20 @@ const projects: Project[] = [
     ]),
     screenshots: [
       {
-        src: JatThumbnail,
-        alt: "Job Applications Tracker dashboard preview",
+        src: JobTrackerDashboard,
+        alt: "Job Applications Tracker dashboard overview",
+      },
+      {
+        src: JobTrackerAnalytics,
+        alt: "Job Applications Tracker dashboard analytics",
+      },
+      {
+        src: JobTrackerApplications,
+        alt: "Job Applications Tracker applications list",
+      },
+      {
+        src: JobTrackerApplicationDetails,
+        alt: "Job Applications Tracker application details",
       },
     ],
     liveDemoUrl: "https://job-application-tracker-swart-sigma.vercel.app/",
@@ -131,8 +175,12 @@ const projects: Project[] = [
     ]),
     screenshots: [
       {
-        src: DigitalClipAgencyThumbnail,
-        alt: "Digital Clip Agency portfolio preview",
+        src: DigitalClipContent,
+        alt: "Digital Clip Agency content examples",
+      },
+      {
+        src: DigitalClipAdmin,
+        alt: "Digital Clip Agency content management panel",
       },
     ],
     liveDemoUrl: "https://digital-clip-agency-landing.vercel.app/",
@@ -170,7 +218,14 @@ const projects: Project[] = [
       "Vercel",
     ]),
     screenshots: [
-      { src: TasteBoardThumbnail, alt: "TasteBoard recipe discovery preview" },
+      {
+        src: TasteBoardRecipes,
+        alt: "TasteBoard recipes page on desktop",
+      },
+      {
+        src: TasteBoardRecipeDetails,
+        alt: "TasteBoard recipe details page on mobile",
+      },
     ],
     liveDemoUrl: "https://taste-board-zeta.vercel.app/",
     githubUrl: "https://github.com/ReySlash/taste-board",

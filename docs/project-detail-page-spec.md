@@ -2,7 +2,7 @@
 
 ## Status
 
-Implemented baseline with local screenshot fallbacks. Additional project screenshots can be added to the data model without changing the page layout.
+Implemented with project-specific local screenshots from `src/data/thumbnails/`.
 
 ## Purpose
 
@@ -48,7 +48,7 @@ Each project also provides:
 - `screenshots`: local screenshot assets with descriptive alternative text.
 - `technologies`: the complete technology list.
 
-The existing thumbnail is used as a safe one-slide fallback until three to five representative screenshots are supplied for each project.
+Each project uses three to five representative screenshots from its local asset folder. The project thumbnail is also shown as the first carousel slide and remains the card image.
 
 ## Screenshot carousel
 
@@ -63,6 +63,7 @@ The carousel uses the shadcn carousel primitive with Embla Autoplay.
 - A single screenshot remains valid and hides unnecessary controls.
 - Every image has descriptive `alt` text.
 - Captions render only when supplied.
+- Images render inside a bounded responsive viewport with `object-contain`, preserving the full content of tall mobile screenshots without cropping.
 
 ## Technology badges
 

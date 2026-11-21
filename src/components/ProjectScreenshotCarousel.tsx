@@ -72,7 +72,7 @@ function ProjectScreenshotCarousel({
   return (
     <Carousel
       aria-label={`${projectName} screenshots`}
-      className="group rounded-3xl border border-gray-800 bg-black/40 p-2 sm:p-4"
+      className="group w-full"
       opts={{ loop: screenshots.length > 1 }}
       plugins={plugins}
       setApi={setApi}
@@ -80,14 +80,18 @@ function ProjectScreenshotCarousel({
       <CarouselContent>
         {screenshots.map((screenshot) => (
           <CarouselItem key={screenshot.alt}>
-            <figure className="overflow-hidden rounded-2xl border border-gray-800 bg-gray-950">
-              <Image
-                className="aspect-video w-full object-cover"
-                src={screenshot.src}
-                alt={screenshot.alt}
-                priority
-                sizes="(min-width: 1024px) 56rem, 100vw"
-              />
+            <figure>
+              <div className="flex min-h-64 max-h-[72vh] items-center justify-center px-8 sm:px-12">
+                <Image
+                  className="h-auto max-h-[72vh] max-w-full rounded-2xl object-contain"
+                  width={screenshot.src.width}
+                  height={screenshot.src.height}
+                  sizes="(min-width: 1024px) 56rem, 100vw"
+                  src={screenshot.src}
+                  alt={screenshot.alt}
+                  priority
+                />
+              </div>
               {screenshot.caption && (
                 <figcaption className="border-t border-gray-800 px-4 py-3 text-sm text-gray-300">
                   {screenshot.caption}
@@ -100,8 +104,8 @@ function ProjectScreenshotCarousel({
 
       {screenshots.length > 1 && (
         <>
-          <CarouselPrevious className="left-6 border-gray-600 bg-gray-900/90 text-white hover:bg-gray-800" />
-          <CarouselNext className="right-6 border-gray-600 bg-gray-900/90 text-white hover:bg-gray-800" />
+          <CarouselPrevious className="left-1 border-gray-600 bg-gray-900/90 text-white hover:bg-gray-800 sm:-left-2" />
+          <CarouselNext className="right-1 border-gray-600 bg-gray-900/90 text-white hover:bg-gray-800 sm:-right-2" />
           <div
             className="mt-4 flex justify-center gap-2"
             role="tablist"

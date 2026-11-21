@@ -81,7 +81,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         <ProjectScreenshotCarousel
           projectName={project.name}
-          screenshots={project.screenshots}
+          screenshots={[
+            { src: project.thumbnail, alt: `${project.name} project preview` },
+            ...project.screenshots,
+          ]}
         />
 
         <div className="grid gap-3 lg:grid-cols-[1fr_1.2fr]">
