@@ -4,6 +4,7 @@ import {
   siCloudflare,
   siCoder,
   siDocker,
+  siDotnet,
   siExpress,
   siGit,
   siHtml5,
@@ -33,6 +34,8 @@ import type { TechnologyIconKey } from "../types/projectType";
 
 export const technologyIcons: Record<TechnologyIconKey, SimpleIcon> = {
   generic: siCoder,
+  dotnet: siDotnet,
+  csharp: siCoder,
   html5: siHtml5,
   css3: siCss,
   javascript: siJavascript,
@@ -68,6 +71,9 @@ export const technologyIcons: Record<TechnologyIconKey, SimpleIcon> = {
 };
 
 const technologyIconKeys: Record<string, TechnologyIconKey> = {
+  ".NET": "dotnet",
+  "ASP.NET Core": "dotnet",
+  "C#": "csharp",
   HTML: "html5",
   CSS: "css3",
   JavaScript: "javascript",

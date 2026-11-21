@@ -13,7 +13,7 @@ import { Card } from "./ui/card";
 
 function AboutCard() {
   const highlights = [
-    { label: "Primary Stack", value: "Next.js + NestJS + PostgreSQL" },
+    { label: "Core Stack", value: "Next.js + ASP.NET Core + PostgreSQL" },
     { label: "Focus", value: "Scalable Web Applications" },
     { label: "Mindset", value: "Business + product perspective" },
   ];

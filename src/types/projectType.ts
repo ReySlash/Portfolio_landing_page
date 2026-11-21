@@ -2,6 +2,8 @@ import type { StaticImageData } from "next/image";
 
 export type TechnologyIconKey =
   | "generic"
+  | "dotnet"
+  | "csharp"
   | "html5"
   | "css3"
   | "javascript"
