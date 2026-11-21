@@ -1,14 +1,16 @@
 # Project Grid and Detail Pages Specification
 
+> The expanded detail-page content, carousel behavior, technology-logo strategy, and accessibility requirements are maintained in [Project Detail Page Experience](./project-detail-page-spec.md).
+
 ## Status
 
-Approved specification. This document describes the planned implementation; it does not itself change application behavior.
+Implemented baseline. This document records the current project-grid, shadcn/ui, and detail-route behavior. Expanded detail-page requirements remain in [Project Detail Page Experience](./project-detail-page-spec.md).
 
 ## Goal
 
 Improve the portfolio Projects section so it presents more projects at a glance, provides a consistent accessible visual system, and gives every project a dedicated detail page.
 
-The existing black/red visual identity remains the foundation. The upgrade adds focused shadcn/ui primitives without replacing the portfolio’s overall design language.
+The existing black/red visual identity remains the foundation. The implementation uses focused shadcn/ui primitives without replacing the portfolio’s overall design language.
 
 ## Scope
 
@@ -33,21 +35,28 @@ The existing black/red visual identity remains the foundation. The upgrade adds 
 
 Use the existing `@/*` TypeScript alias, which maps to `src/*`.
 
-Add the focused primitives required by this feature:
+The current setup includes these focused primitives:
 
 - `Card`
 - `Badge`
 - `Button` styles through `buttonVariants`
+- `Carousel`
+- `Drawer`
+- `NavigationMenu`
+- `Tooltip`
 
-Add the supporting shadcn setup:
+The supporting shadcn setup includes:
 
 - `components.json`
 - `src/components/ui/card.tsx`
 - `src/components/ui/badge.tsx`
 - `src/components/ui/button.tsx`
-- `src/lib/utils.ts`
+- `src/components/ui/carousel.tsx`
+- `src/components/ui/drawer.tsx`
+- `src/components/ui/navigation-menu.tsx`
+- `src/components/ui/tooltip.tsx`
 
-Add the required packages:
+The implementation uses these supporting packages:
 
 - `shadcn`
 - `class-variance-authority`
@@ -55,6 +64,9 @@ Add the required packages:
 - `tailwind-merge`
 - `lucide-react`
 - `tw-animate-css`
+- `embla-carousel-autoplay`
+- `embla-carousel-react`
+- `simple-icons`
 
 Update the Tailwind v4 stylesheet imports according to the current shadcn setup. Preserve the existing black/red palette and use shadcn primitives as composable building blocks rather than replacing all current styles with the default theme.
 
@@ -68,11 +80,16 @@ References:
 
 ## Project data contract
 
-Extend the existing `Project` type with:
+The current `Project` type includes:
 
 ```ts
 slug: string;
+shortDescription: string;
 highlights: string[];
+problem: string;
+solution: string;
+technologies: ProjectTechnology[];
+screenshots: ProjectScreenshot[];
 ```
 
 Keep the existing fields:
@@ -80,7 +97,8 @@ Keep the existing fields:
 - `id`
 - `name`
 - `description`
-- `techTags`
+- `shortDescription`
+- `technologies`
 - `liveDemoUrl`
 - `githubUrl`
 - `thumbnail`
@@ -98,13 +116,15 @@ Each project must include three to five concise `highlights` describing its main
 
 ## Projects section
 
-Replace the current two-column desktop layout with a balanced responsive grid:
+Use a balanced responsive grid that adapts to the available width:
 
 ```text
-mobile: 1 column
-sm and larger: 2 columns
-xl and larger: 3 columns
+small screens: 1 column
+medium screens: typically 2 columns
+wide screens: typically 3 columns
 ```
+
+The implementation uses an auto-fit grid with a minimum card width, allowing the number of columns to respond naturally instead of relying only on fixed breakpoint counts.
 
 Use consistent grid gaps and equal-height cards within each row.
 
@@ -112,11 +132,11 @@ Use consistent grid gaps and equal-height cards within each row.
 
 Each card contains:
 
-1. Consistent aspect-ratio project thumbnail.
+1. Consistent aspect-ratio project thumbnail with a subtle image scale interaction.
 2. Accessible project image alternative text.
 3. Project name.
 4. Short project description.
-5. Limited technology badge preview to keep cards compact.
+5. Limited technology badge preview with technology logos to keep cards compact.
 6. Primary `Live Demo` external link when available.
 7. Secondary `Details` internal link.
 
@@ -148,14 +168,14 @@ The route must:
 
 ### Detail page content
 
-Each detail page contains:
+The current detail page contains:
 
 1. Back navigation to the portfolio Projects section.
 2. Project title.
-3. Project overview.
-4. Project thumbnail.
+3. Screenshot carousel with the project thumbnail as the first slide.
+4. Problem and solution content.
 5. Key capability highlights.
-6. Full technology stack.
+6. Full technology stack with logos.
 7. Primary Live Demo action when available.
 8. Secondary GitHub action when available.
 

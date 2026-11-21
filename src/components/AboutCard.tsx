@@ -2,20 +2,28 @@ import Image from "next/image";
 import portrait from "../assets/AboutPortrait.webp";
 import githubIcon from "../assets/github.svg";
 import linkedinIcon from "../assets/linkedin.svg";
+import StyledLink from "./StyledLink";
+import { Badge } from "./ui/badge";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "./ui/tooltip";
+import { Card } from "./ui/card";
 
 function AboutCard() {
   const highlights = [
-    { label: "Primary Stack", value: "Next.js + NestJS + PostgreSQL" },
+    { label: "Core Stack", value: "Next.js + ASP.NET Core + PostgreSQL" },
     { label: "Focus", value: "Scalable Web Applications" },
     { label: "Mindset", value: "Business + product perspective" },
   ];
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] h-full flex flex-col justify-between gap-3">
+    <Card className="h-full justify-between gap-3 overflow-hidden rounded-3xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]">
       <div className="mb-3 flex items-start justify-between">
-        <span className="inline-flex rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
+        <Badge className="border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 hover:bg-emerald-500/10">
           Open to opportunities
-        </span>
+        </Badge>
       </div>
 
       <div className="flex flex-col items-center text-center gap-1">
@@ -48,56 +56,70 @@ function AboutCard() {
       </div>
 
       <div className="flex flex-row gap-3">
-        <a
+        <StyledLink
           href="#projects"
-          className="flex flex-1 items-center justify-center text-center rounded-xl bg-red-600 px-5 py-3 font-semibold transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
+          className="flex-1"
         >
           View Projects
-        </a>
+        </StyledLink>
 
-        <a
+        <StyledLink
           href="#contact"
-          className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+          variant="secondary"
+          className="flex-1"
         >
           Contact Me
-        </a>
+        </StyledLink>
       </div>
 
       <div className="h-20 flex items-center justify-center gap-4 border-t border-gray-800">
-        <a
-          className="rounded-xl border border-gray-800 bg-gray-900 p-3 transition-all duration-150 hover:scale-105 hover:cursor-pointer hover:border-gray-600 hover:bg-gray-800 active:scale-95"
-          href="https://github.com/ReySlash"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Open GitHub profile"
-        >
-          <Image
-            className="w-7 brightness-0 invert "
-            src={githubIcon}
-            alt="GitHub"
-            width={28}
-            height={28}
-            unoptimized
-          />
-        </a>
-        <a
-          className="rounded-xl border border-gray-800 bg-gray-900 transition-all p-1 duration-150 hover:scale-105 hover:cursor-pointer hover:border-gray-600 hover:bg-gray-800 active:scale-95 "
-          href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Open LinkedIn profile"
-        >
-          <Image
-            className="w-11 brightness-0 invert "
-            src={linkedinIcon}
-            alt="LinkedIn"
-            width={44}
-            height={44}
-            unoptimized
-          />
-        </a>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <StyledLink
+              href="https://github.com/ReySlash"
+              target="_blank"
+              rel="noreferrer"
+              variant="secondary"
+              className="h-12 w-12 p-2"
+              aria-label="Open GitHub profile"
+            >
+              <Image
+                className="h-7 w-7 brightness-0 invert"
+                src={githubIcon}
+                alt="GitHub"
+                width={28}
+                height={28}
+                unoptimized
+              />
+            </StyledLink>
+          </TooltipTrigger>
+          <TooltipContent>GitHub</TooltipContent>
+        </Tooltip>
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <StyledLink
+              href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
+              target="_blank"
+              rel="noreferrer"
+              variant="secondary"
+              className="h-12 w-12 p-2"
+              aria-label="Open LinkedIn profile"
+            >
+              <Image
+                className="h-7 w-7 brightness-0 invert"
+                src={linkedinIcon}
+                alt="LinkedIn"
+                width={28}
+                height={28}
+                unoptimized
+              />
+            </StyledLink>
+          </TooltipTrigger>
+          <TooltipContent>LinkedIn</TooltipContent>
+        </Tooltip>
       </div>
-    </div>
+    </Card>
   );
 }
 

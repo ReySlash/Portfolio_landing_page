@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ogImage from "../assets/OG-Image.webp";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const siteUrl = "https://reyslash.com";
@@ -48,7 +49,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-black text-white">{children}</body>
+      <body className="bg-black text-white">
+        <TooltipProvider>{children}</TooltipProvider>
+      </body>
     </html>
   );
 }

@@ -20,16 +20,18 @@ describe("Projects", () => {
     ).toBeInTheDocument();
 
     const liveDemoLinks = screen.getAllByRole("link", { name: /live demo/i });
-    const githubLinks = screen.getAllByRole("link", { name: /github/i });
+    const detailsLinks = screen.getAllByRole("link", { name: /details/i });
 
     expect(liveDemoLinks).toHaveLength(
       projects.filter((project) => project.liveDemoUrl).length,
     );
-    expect(githubLinks).toHaveLength(
-      projects.filter((project) => project.githubUrl).length,
-    );
+    expect(detailsLinks).toHaveLength(projects.length);
 
     expect(liveDemoLinks[0]).toHaveAttribute("href", projects[0].liveDemoUrl);
-    expect(githubLinks[0]).toHaveAttribute("href", projects[0].githubUrl);
+    expect(detailsLinks[0]).toHaveAttribute(
+      "href",
+      `/projects/${projects[0].slug}`,
+    );
+    expect(screen.getByText(projects[0].shortDescription)).toBeInTheDocument();
   });
 });

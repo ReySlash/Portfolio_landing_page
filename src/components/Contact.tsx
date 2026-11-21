@@ -1,9 +1,15 @@
 import Reveal from "./Reveal";
 import EmailButton from "./EmailButton";
+import StyledLink from "./StyledLink";
+import { Card } from "./ui/card";
 
 function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="scroll-mt-24">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="scroll-mt-24"
+    >
       <div className="flex w-full flex-col gap-5">
         <Reveal className="max-w-3xl space-y-4 text-left">
           <h2
@@ -14,13 +20,10 @@ function Contact() {
           </h2>
         </Reveal>
 
-        <Reveal
-          className="rounded-3xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] lg:p-8"
-          delay={80}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-center gap-3 md:flex-row md:flex-wrap">
+        <Reveal delay={80}>
+          <Card className="grid grid-cols-1 items-center justify-center gap-3 rounded-3xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:grid-cols-3 lg:p-8">
             <div className="col-span-1 md:col-span-2 flex flex-col gap-5 justify-center items-start">
-              <p className="text-4xl font-bold tracking-tight text-white lg:text-5xl">
+              <p className="text-2xl font-bold tracking-tight text-white lg:text-3xl">
                 Let's build something clear, modern, and useful.
               </p>
               <div className="text-center md:text-left w-full">
@@ -33,25 +36,26 @@ function Contact() {
               </div>
             </div>
             <div className="col-span-1 grid grid-cols-1 gap-3 xl:px-5 items-center justify-between md:justify-center">
-              <a
+              <StyledLink
                 href="https://www.linkedin.com/in/reynaldo-carmenate-arias-03b5102b5/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-1 items-center justify-center text-center rounded-xl bg-red-600 px-auto py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98]"
+                className="w-full"
               >
                 Connect on LinkedIn
-              </a>
-              <a
+              </StyledLink>
+              <StyledLink
                 href="https://github.com/ReySlash"
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+                variant="secondary"
+                className="w-full"
               >
                 Visit GitHub
-              </a>
+              </StyledLink>
               <EmailButton />
             </div>
-          </div>
+          </Card>
         </Reveal>
 
         <Reveal

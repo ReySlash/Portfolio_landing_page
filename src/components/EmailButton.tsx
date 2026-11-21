@@ -4,6 +4,7 @@ import Image from "next/image";
 import copyClipboard from "../assets/copyClipboardIcon.svg";
 import copiedClipboard from "../assets/copiedClipboardIcon.svg";
 import { useEffect, useRef, useState } from "react";
+import { Button } from "./ui/button";
 
 function EmailButton() {
   const [copied, setCopied] = useState(false);
@@ -44,12 +45,14 @@ function EmailButton() {
     }
   };
   return (
-    <button
+    <Button
       type="button"
       onClick={() => {
         void handleCopyEmail();
       }}
-      className="flex flex-1 items-center justify-center text-center rounded-xl border border-gray-700 bg-gray-900 px-5 py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:border-gray-500 hover:bg-gray-800 active:scale-[0.98]"
+      variant="outline"
+      size="lg"
+      className="w-full min-h-12 rounded-xl !border-gray-700 !bg-gray-900 px-5 py-3 font-semibold !text-white shadow-sm shadow-black/30 transition-transform duration-150 hover:scale-[1.02] hover:!border-gray-600 hover:!bg-gray-800 hover:!text-white active:scale-[0.98]"
       aria-label={
         copied
           ? "Email copied to clipboard"
@@ -67,7 +70,7 @@ function EmailButton() {
         unoptimized
       />
       {copied ? "Copied!" : copyFailed ? "Copy Failed" : "Copy Email"}
-    </button>
+    </Button>
   );
 }
 

@@ -1,5 +1,9 @@
 import Image from "next/image";
 import type { Project } from "../types/projectType";
+import StyledLink from "./StyledLink";
+import TechnologyBadge from "./TechnologyBadge";
+import { Badge } from "./ui/badge";
+import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 
 type Props = {
   project: Project;
@@ -7,52 +11,60 @@ type Props = {
 
 function ProjectCard({ project }: Props) {
   return (
-    <div className="flex h-full flex-col gap-2 rounded-xl border border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] hover:border-red-600">
-      <Image
-        className="aspect-10/5 rounded-t-xl border border-gray-900 object-cover"
-        src={project.thumbnail}
-        alt={project.name}
-        sizes="(min-width: 1024px) 50vw, 100vw"
-      />
-      <div className="flex flex-1 flex-col gap-1 px-4 pb-2">
-        <div>
-          <h3 className="text-2xl font-bold tracking-tight">{project.name}</h3>
-          <p className="leading-7 text-gray-300">{project.description}</p>
-        </div>
-        <div className="flex flex-wrap items-center gap-1 py-1 text-sm">
-          {project.techTags.map((tag) => (
-            <span
-              className="rounded-full border border-gray-700 bg-gray-900 px-3 py-2 text-gray-100 transition-colors duration-150 hover:border-red-500/50"
-              key={tag}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <div className="mt-auto flex gap-4 border-t border-gray-900 pt-2">
-          {project.liveDemoUrl && (
-            <a
-              className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-red-600 px-5 py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-red-500 active:scale-[0.98] sm:max-w-48"
-              href={project.liveDemoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Live Demo
-            </a>
-          )}
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-gray-800 px-5 py-3 font-semibold  transition-all duration-150 hover:scale-[1.02] hover:cursor-pointer hover:bg-gray-700 active:scale-[0.98] sm:max-w-48"
-            >
-              GitHub
-            </a>
-          )}
-        </div>
+    <Card className="flex flex-col py-1 gap-1 overflow-hidden rounded-2xl border-gray-800 bg-linear-to-br from-gray-950 via-black to-gray-900 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]">
+      <div className="group aspect-[2.4/1] overflow-hidden border-b border-gray-900">
+        <Image
+          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+          src={project.thumbnail}
+          alt={project.name}
+          sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
+        />
       </div>
-    </div>
+      <CardHeader className="gap-0 ">
+        <h3 className="text-lg font-bold tracking-tight">{project.name}</h3>
+      </CardHeader>
+      <CardContent className="flex flex-1 flex-col gap-1">
+        <p className="text-md leading-6 text-gray-300">
+          {project.shortDescription}
+        </p>
+        <div className="flex flex-wrap items-center gap-1 ">
+          {project.technologies.slice(0, 5).map((technology) => (
+            <TechnologyBadge
+              key={technology.name}
+              technology={technology}
+              className="px-2 py-2 text-sm"
+            />
+          ))}
+          {project.technologies.length > 5 && (
+            <Badge
+              variant="outline"
+              className="border-gray-700 bg-gray-900 px-2 py-2 text-sm text-gray-100"
+            >
+              +{project.technologies.length - 5} more
+            </Badge>
+          )}
+        </div>
+      </CardContent>
+      <CardFooter className="mt-auto gap-2 border-t border-gray-900">
+        {project.liveDemoUrl && (
+          <StyledLink
+            className="min-h-10! min-w-0 flex-1 rounded-lg! px-3! py-2! text-sm sm:max-w-48"
+            href={project.liveDemoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Demo
+          </StyledLink>
+        )}
+        <StyledLink
+          className="min-h-10! min-w-0 flex-1 rounded-lg! px-3! py-2! text-sm sm:max-w-48"
+          href={`/projects/${project.slug}`}
+          variant="secondary"
+        >
+          Details
+        </StyledLink>
+      </CardFooter>
+    </Card>
   );
 }
 
